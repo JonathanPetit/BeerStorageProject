@@ -31,7 +31,7 @@ public class Brewer {
     return brandsList;
   }
 
-  public void AddBrand(BrandBeer brand){
+  public void addBrand(BrandBeer brand){
     this.brandsList.add(brand);
   }
 }
