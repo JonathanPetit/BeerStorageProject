@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Brewer {
   private String name;
   private String address;
-  private ArrayList<BrandBeer> brandList;
+  private ArrayList<BrandBeer> brandsList;
   private String number;
 
   public Brewer(String name, String address, String number) {
     this.name = name;
     this.address = address;
     this.number = number;
-    this.brandList = new ArrayList<BrandBeer>();
+    this.brandsList = new ArrayList<BrandBeer>();
   }
 
   public String getName() {
@@ -28,10 +28,10 @@ public class Brewer {
   }
 
   public ArrayList<BrandBeer> getBrandList() {
-    return brandList;
+    return brandsList;
   }
 
   public void AddBrand(BrandBeer brand){
-    this.brandList.add(brand);
+    this.brandsList.add(brand);
   }
 }

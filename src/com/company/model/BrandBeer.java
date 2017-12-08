@@ -1,12 +1,11 @@
 package com.company.model;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+
 
 public class BrandBeer {
   private String name;
-  private List<ModelBeer> modelList;
+  private ArrayList<Beer> beersList;
 
   public String GetName(){return name;}
   public List<ModelBeer> GetModelList(){return modelList;}
