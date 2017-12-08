@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e46a5444-6128-443c-b6fb-ff9900b408c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BeerStorageProject.iml" afterPath="$PROJECT_DIR$/.idea/BeerStorageProject.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/com/company/model/Beer.java" afterPath="$PROJECT_DIR$/src/com/company/model/Beer.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/model/database.java" afterPath="$PROJECT_DIR$/src/com/company/model/database.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,8 +76,8 @@
       <file leaf-file-name="Beer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/model/Beer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -389,12 +385,12 @@
       <workItem from="1512553752950" duration="973000" />
       <workItem from="1512554733729" duration="2644000" />
       <workItem from="1512735120081" duration="125000" />
-      <workItem from="1512735376084" duration="141000" />
+      <workItem from="1512735376084" duration="199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8791000" />
+    <option name="totallyTimeSpent" value="8849000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -647,8 +643,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/model/Beer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding />
         </state>
       </provider>

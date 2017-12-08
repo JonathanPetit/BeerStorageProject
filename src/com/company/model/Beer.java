@@ -9,7 +9,7 @@ public class Beer {
   private double evaluation;
 
   public Beer(String name, String type, double degree, double conditioning, double price,
-                   int evalutation) {
+                   int evaluation) {
     this.name = name;
     this.type = type;
     this.degree = degree;
@@ -30,7 +30,7 @@ public class Beer {
     return degree;
   }
 
-  public double getConditionning() {
+  public double getConditioning() {
     return conditioning;
   }
 
@@ -38,7 +38,7 @@ public class Beer {
     return price;
   }
 
-  public double getEvalutation() {
+  public double getEvaluation() {
     return evaluation;
   }
 }
