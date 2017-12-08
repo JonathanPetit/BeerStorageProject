@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 //import Inventory
 import com.company.views.View;
-import com.company.model.Brouwer;
+import com.company.model.Brewer;
 
 
 public class Controller {
@@ -83,7 +83,7 @@ public class Controller {
             case "--brewer":
                 Scanner scan = new Scanner(System.in);
                 System.out.println("- Brasseur: ");
-                Brouwer brew = new Brouwer(scan.nextLine());
+                Brewer brew = new Brewer(scan.nextLine());
                 break;
         }
         return true;
