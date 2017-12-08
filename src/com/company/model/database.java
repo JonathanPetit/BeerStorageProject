@@ -2,7 +2,7 @@
  * date : 01-12-17
  * author : amaury lekens
  */
-
+/*
 import java.sql.*
 
 public class Database {
@@ -65,4 +65,4 @@ public class Database {
     public calculateValue () {
 
     }
-}
+}*/
