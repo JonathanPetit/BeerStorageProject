@@ -32,7 +32,7 @@ public class BrandBeer {
     return beersList;
   }
 
-  public void AddBeer(Beer beer){
+  public void addBeer(Beer beer){
     this.beersList.add(beer);
   }
 

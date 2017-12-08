@@ -1,10 +1,7 @@
 package com.company.controller;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Arrays;
+import java.util.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Scanner;
 
 //import Inventory
 import com.company.views.*;
@@ -12,93 +9,54 @@ import com.company.model.*;
 
 
 public class Controller {
+    public Hashtable<String, ArrayList<String>> commandsList;
 
-    //private Database model;
-    private View view;
-    public Map<String, String[]> commandsList = new Hashtable<String, String[]>();
-    public String[] options = {"--beer", "--brand", "--brewer"};
-
-    public Controller(View view){
-        //this.model = model;
-        this.view = view;
-        this.commandsList.put("add", options);
-        this.commandsList.put("edit", options);
-        this.commandsList.put("info", options);
+    public Controller(){
+        this.commandsList = new Hashtable<String, ArrayList<String>>();
     }
 
-
-    public boolean parseCommand(String[] elements){
-
-        if(elements.length < 1 ||
-                elements.length > 3 ||
-                !this.commandsList.containsKey(elements[0]) ){
-            System.out.println("Commande invalide - Tapez 'help' pour plus d'aide");
-            return false;
-        }
-        else{
-            // Get the valid options of the command according to the collection 'commandList'
-            String[] validOptions = this.commandsList.get(elements[0]);
-            boolean valid = false;
-
-            try{
-                valid = Arrays.asList(validOptions).contains(elements[1]);
-            }
-            catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("Option invalide");
-                return false;
-            }
-
-            if(!valid) {
-                System.out.println("Option invalide");
-                return false;
-            }
-            else{
-
-                switch (elements[0]){
-                    case "add":
-                        this.add(elements[1]);
-                        break;
-                    case "edit":
-                        this.edit(elements[1]);
-                        break;
-                    case "help":
-                        this.help();
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        }
+    public void addCommands(String key, ArrayList<String> options) {
+        this.commandsList.put(key, options);
     }
-
-
-
-    public boolean add(String option){
-        switch (option){
-            case "--beer":
-                break;
-            case "--brand":
-                break;
-            case "--brewer":
-                Scanner scan = new Scanner(System.in);
-                System.out.println("- Brasseur: ");
-                Brewer brew = new Brewer(scan.nextLine());
-                break;
-        }
-        return true;
-    }
-
-
-    public boolean edit(String option){
-        return false;
-    }
-
 
     public boolean help(){
-        System.out.println("help method");
+        System.out.println("Help method");
         return true;
     }
+
+    public void exit() {
+        System.exit(0);
+    }
+
+    public ArrayList<String> parseCommand(String elements) {
+        ArrayList<String> parserReturn = new ArrayList<String>();
+        elements = elements.trim();
+        String[] parseElement = elements.split("\\s+'");
+
+        if (parseElement.length > 3) {
+            System.out.println("Invalid input");
+            this.exit();
+        }
+
+        String command = parseElement[1];
+        String options = parseElement[2];
+        if (!this.commandsList.containsKey(command)) {
+            System.out.println("Command invalid");
+            this.exit();
+        } else {
+            ArrayList validOption = this.commandsList.get(command);
+            if (!validOption.contains(options)) {
+                System.out.println("Option invalid");
+                this.exit();
+            }
+        }
+
+        parserReturn.add(command);
+        parserReturn.add(options);
+        parserReturn.add(parseElement[3]);
+        return parserReturn;
+    }
+    
 
      /* Tentative d'invocation de méthode par réflexion .... pour lancer la méthode à partir de son nom */
     /*public boolean test(String[] elements){
