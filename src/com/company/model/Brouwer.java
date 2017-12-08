@@ -4,45 +4,38 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Comparator;
+import java.util.ArrayList;
 
-public class Brouwer implements Comparable<Brouwer>{
+public class Brewer {
   private String name;
+  private String address;
+  private ArrayList<BrandBeer> brandList;
+  private String number;
 
+  public Brewer(String name, String address, String number) {
+    this.name = name;
+    this.address = address;
+    this.number = number;
+    this.brandList = new ArrayList<BrandBeer>();
+  }
 
-  private List<BrandBeer> brandList;
+  public String getName() {
+    return name;
+  }
 
-  public String GetName(){return name;}
-  public List<BrandBeer> GetBrandList(){return brandList;}
+  public String getAddress() {
+    return address;
+  }
 
-  public void SetName(String name){this.name = name;}
-  public void SetBrandList(List<BrandBeer> brandList){this.brandList = brandList;}
+  public String getNumber() {
+    return number;
+  }
 
-  public Brouwer(String name){
-    SetName(name);
-
-    List<BrandBeer> brandList = new LinkedList<BrandBeer>();
-    SetBrandList(brandList);
+  public ArrayList<BrandBeer> getBrandList() {
+    return brandList;
   }
 
   public void AddBrand(BrandBeer brand){
-    // Add a beer of the brand represented by the object BrandBeer
-    List<BrandBeer> updatedBrandList = this.GetBrandList();
-    updatedBrandList.add(brand);
-
-    SetBrandList(updatedBrandList);
+    this.brandList.add(brand);
   }
-
-  public String BrandBeerList2String(String sep) {
-    List<BrandBeer> brandBeerList = this.GetBrandList();
-    String listStringed = brandBeerList.stream().map(BrandBeer::GetName).collect(Collectors.joining(sep));
-    return listStringed;
-  }
-
-  //AtoZ
-  public int compareTo(Brouwer brouwer) {
-    int compname = this.GetName().compareTo(brouwer.GetName());
-    if(compname != 0) { return compname; }
-    return 0;
-  }
-
 }
