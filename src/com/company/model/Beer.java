@@ -4,18 +4,18 @@ public class Beer {
   private String name;
   private String type;
   private double degree;
-  private double conditionning;
+  private double conditioning;
   private double price;
-  private double evalutation;
+  private double evaluation;
 
-  public Beer(String name, String type, double degree, double conditionning, double price,
-                   int evalutation) {
+  public Beer(String name, String type, double degree, double conditioning, double price,
+                   int evaluation) {
     this.name = name;
     this.type = type;
     this.degree = degree;
-    this.conditionning = conditionning;
+    this.conditioning = conditioning;
     this.price = price;
-    this.evalutation = evalutation;
+    this.evaluation = evaluation;
   }
 
   public String getName() {
@@ -30,15 +30,15 @@ public class Beer {
     return degree;
   }
 
-  public double getConditionning() {
-    return conditionning;
+  public double getConditioning() {
+    return conditioning;
   }
 
   public double getPrice() {
     return price;
   }
 
-  public double getEvalutation() {
-    return evalutation;
+  public double getEvaluation() {
+    return evaluation;
   }
 }
