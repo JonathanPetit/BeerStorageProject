@@ -1,9 +1,5 @@
 package com.company.model;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.Comparator;
 import java.util.ArrayList;
 
 public class Brewer {
