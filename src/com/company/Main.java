@@ -44,32 +44,32 @@ public class Main {
 
 
 
-    public static List<Brouwer>GetData(){
-        Brouwer Artois = new Brouwer("Artois");
+    public static List<Brewer>GetData(){
+        Brewer Artois = new Brewer("Artois");
         BrandBeer Leffe = new BrandBeer("Leffe");
-        ModelBeer LeffeBrune33 = new ModelBeer("Leffe brune", "Brune", 6.5, 33.0, 2.5, 2);
-        ModelBeer LeffeBlonde33 = new ModelBeer("Leffe Blonde", "Blonde", 6.5, 33.0, 2.5, 2);
+        Beer LeffeBrune33 = new Beer("Leffe brune", "Brune", 6.5, 33.0, 2.5, 2);
+        Beer LeffeBlonde33 = new Beer("Leffe Blonde", "Blonde", 6.5, 33.0, 2.5, 2);
         Leffe.AddBeer(LeffeBlonde33);
         Leffe.AddBeer(LeffeBrune33);
         BrandBeer Stella = new BrandBeer("Stella");
-        ModelBeer Pils = new ModelBeer("Pils", "Blonde", 6.5, 33.0, 2.5, 2);
+        Beer Pils = new Beer("Pils", "Blonde", 6.5, 33.0, 2.5, 2);
         Stella.AddBeer(Pils);
         Artois.AddBrand(Leffe);
         Artois.AddBrand(Stella);
 
-        Brouwer Dubuisson = new Brouwer("Dubuisson");
+        Brewer Dubuisson = new Brewer("Dubuisson");
         BrandBeer Bush = new BrandBeer("Bush");
-        ModelBeer Bush12 = new ModelBeer("Bush12", "Blonde", 12.0, 33.0, 2.5, 2);
+        Beer Bush12 = new Beer("Bush12", "Blonde", 12.0, 33.0, 2.5, 2);
         Bush.AddBeer(Bush12);
         Dubuisson.AddBrand(Bush);
 
-        Brouwer Abinbev = new Brouwer("ABinbev");
+        Brewer Abinbev = new Brewer("ABinbev");
         BrandBeer Jupiler = new BrandBeer("Jupiler");
-        ModelBeer Force = new ModelBeer("Force", "Blonde", 0.0, 33.0, 2.5, 2);
+        Beer Force = new Beer("Force", "Blonde", 0.0, 33.0, 2.5, 2);
         Jupiler.AddBeer(Force);
         Abinbev.AddBrand(Jupiler);
 
-        List<Brouwer> list = new ArrayList();
+        List<Brewer> list = new ArrayList();
         list.add(Artois);
         list.add(Abinbev);
         list.add(Dubuisson);

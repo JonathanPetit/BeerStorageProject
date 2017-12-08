@@ -2,18 +2,17 @@ package com.company.model;
 
 import java.util.ArrayList;
 
-
-public class BrandBeer {
+public class Brewer {
   private String name;
   private String address;
+  private ArrayList<BrandBeer> brandsList;
   private String number;
-  private ArrayList<Beer> beersList;
 
-  public BrandBeer(String name, String address, String number){
+  public Brewer(String name, String address, String number) {
     this.name = name;
     this.address = address;
     this.number = number;
-    this.beersList = new ArrayList<Beer>();
+    this.brandsList = new ArrayList<BrandBeer>();
   }
 
   public String getName() {
@@ -28,11 +27,11 @@ public class BrandBeer {
     return number;
   }
 
-  public ArrayList<Beer> getBeersList() {
-    return beersList;
+  public ArrayList<BrandBeer> getBrandList() {
+    return brandsList;
   }
 
-  public void AddBeer(Beer beer){
-    this.beersList.add(beer);
+  public void AddBrand(BrandBeer brand){
+    this.brandsList.add(brand);
   }
 }
