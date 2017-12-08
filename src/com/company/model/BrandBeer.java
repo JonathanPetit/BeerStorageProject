@@ -35,4 +35,6 @@ public class BrandBeer {
   public void AddBeer(Beer beer){
     this.beersList.add(beer);
   }
+
+  public void RemoveBeer(Beer beer) {this.beersList.remove(beer);}
 }

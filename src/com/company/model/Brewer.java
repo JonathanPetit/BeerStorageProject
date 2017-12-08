@@ -34,4 +34,6 @@ public class Brewer {
   public void AddBrand(BrandBeer brand){
     this.brandsList.add(brand);
   }
+
+  public void RemoveBrand(BrandBeer brand) {this.brandsList.remove(brand);}
 }

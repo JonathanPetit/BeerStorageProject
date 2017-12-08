@@ -1,7 +1,7 @@
 package com.company;
 import com.company.views.*;
 import com.company.model.*;
-import com.company.controller.Controller;
+import com.company.controller.*;
 
 import java.util.*;
 import java.util.stream.Collectors;

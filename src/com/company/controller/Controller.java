@@ -7,8 +7,8 @@ import java.lang.reflect.Modifier;
 import java.util.Scanner;
 
 //import Inventory
-import com.company.views.View;
-import com.company.model.Brewer;
+import com.company.views.*;
+import com.company.model.*;
 
 
 public class Controller {
