@@ -11,6 +11,19 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
+        Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
+        BrandBeer brandBeer = new BrandBeer("BrewerName","BrewerAddress","0");
+        Beer beer = new Beer("BeerName", "BeerType", 8.3, 4.0,3.5, 9);
+        System.out.println(beer.toString());
+
+        brandBeer.addBeer(beer);
+
+        System.out.println("BrandBeer: "+brandBeer.toString());
+
+        testBrewer.addBrand(brandBeer);
+
+        System.out.println(testBrewer.toString());
+
         View inventory = new View(GetData());
         /*inventory.atoz();
         inventory.ztoa();

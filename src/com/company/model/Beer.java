@@ -41,4 +41,16 @@ public class Beer {
   public double getEvaluation() {
     return evaluation;
   }
+
+  @Override
+  public String toString() {
+    String toString = "{";
+    toString += "name: "+this.name;
+    toString += ", type: "+this.type;
+    toString += ", conditioning: "+this.conditioning;
+    toString += ", price: "+this.price;
+    toString += ", evaluation: "+this.evaluation;
+    toString += "}";
+    return toString;
+  }
 }

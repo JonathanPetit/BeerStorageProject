@@ -28,7 +28,7 @@ public class BeerProjTests
         Assert.assertEquals("Should be 69","69",brewer.getNumber());
         Assert.assertEquals("Should be 0",0,brewer.getBrandList().size());
         BrandBeer brand = new BrandBeer("Pechmel","Here","30");
-        brewer.AddBrand(brand);
+        //brewer.AddBrand(brand);
         Assert.assertEquals("Should be 1",1,brewer.getBrandList().size());
         brewer.RemoveBrand(brand);
         Assert.assertEquals("Should be 0",0,brewer.getBrandList().size());
@@ -42,7 +42,7 @@ public class BeerProjTests
         Assert.assertEquals("Should be 69","69",brand.getNumber());
         Beer beer= new Beer("Jup","Pils",6,50,2.5,5);
         Assert.assertEquals("Should be 0","0",brand.getBeersList().size());
-        brand.AddBeer(beer);
+        //brand.AddBeer(beer);
         Assert.assertEquals("Should be 1","1",brand.getBeersList().size());
         brand.RemoveBeer(beer);
         Assert.assertEquals("Should be 0","0",brand.getBeersList().size());
