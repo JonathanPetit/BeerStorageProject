@@ -1,1 +1,18 @@
-[{"name": "BeerName", "type": "BeerType", "conditioning": "4.0", "price": "3.5", "evaluation": "9.0"}]
+[
+  {
+    "name": "BeerName",
+    "type": "BeerType",
+    "degree": "8.5",
+    "conditioning": "4.0",
+    "price": "3.5",
+    "evaluation": "9"
+  },
+  {
+  "name": "SecondBeer",
+  "type": "SecondType",
+  "degree": "10.0",
+  "conditioning": "5.0",
+  "price": "5.5",
+  "evaluation": "7"
+  }
+]

@@ -1,6 +1,9 @@
 package com.company.model;
 
+import com.company.Json.JsonRead;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Brewer {
   private String name;
@@ -36,6 +39,8 @@ public class Brewer {
   }
 
   public void RemoveBrand(BrandBeer brand) {this.brandsList.remove(brand);}
+
+
 
   @Override
   public String toString(){

@@ -1,5 +1,10 @@
 package com.company.model;
 
+import com.company.Json.JsonRead;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+
 public class Beer {
   private String name;
   private String type;
@@ -47,6 +52,7 @@ public class Beer {
     String toString = "{";
     toString += "\"name\": \""+this.name;
     toString += "\", \"type\": \""+this.type;
+    toString += "\", \"degree\": \""+this.degree;
     toString += "\", \"conditioning\": \""+this.conditioning;
     toString += "\", \"price\": \""+this.price;
     toString += "\", \"evaluation\": \""+this.evaluation;

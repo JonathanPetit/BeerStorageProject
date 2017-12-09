@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JsonWrite {
-  public void jsonWrite(String name, Object object){
+  public void WriteFile(String name, Object object){
     String filename = name+".json";
     try {
       FileWriter fileWriter = new FileWriter(filename);

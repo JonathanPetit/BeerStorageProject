@@ -1,4 +1,5 @@
 package com.company;
+import com.company.Json.JsonRead;
 import com.company.Json.JsonWrite;
 import com.company.views.*;
 import com.company.model.*;
@@ -12,8 +13,8 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
-        BrandBeer brandBeer = new BrandBeer("BrewerName","BrewerAddress","0");
+        /*Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
+        BrandBeer brandBeer = new BrandBeer("BrandBeerName","BrewerAddress","0");
         Beer beer = new Beer("BeerName", "BeerType", 8.3, 4.0,3.5, 9);
         System.out.println(beer.toString());
 
@@ -26,9 +27,29 @@ public class Main {
         System.out.println(testBrewer.toString());
 
       JsonWrite writeJson = new JsonWrite();
-      writeJson.jsonWrite("Beer", beer);
-      writeJson.jsonWrite("Brewer",testBrewer);
-      writeJson.jsonWrite("BrandBeer",brandBeer);
+      writeJson.WriteFile("Beer", beer);
+      writeJson.WriteFile("Brewer",testBrewer);
+      writeJson.WriteFile("BrandBeer",brandBeer);*/
+      JsonRead jsonRead = new JsonRead();
+      /*List<Object> read = jsonRead.ReadFile("Beer");
+      for (Object obj:read){
+        System.out.println(obj.toString());
+      }*/
+
+      Brewer brewerObject = (Brewer) jsonRead.getByName("Brewer","BrewerName");
+      System.out.println("Brewer: "+brewerObject);
+
+      System.out.println("BrandBeers: ");
+      for (BrandBeer brandBeer:brewerObject.getBrandList()){
+        BrandBeer brandBeerObject = (BrandBeer) jsonRead.getByName("BrandBeer",brandBeer.getName
+                ());
+        System.out.println(brandBeerObject);
+        System.out.println("Beers: ");
+        for (Beer beer:brandBeerObject.getBeersList()){
+          Beer beerObject = (Beer) jsonRead.getByName("Beer",beer.getName());
+          System.out.println(beerObject);
+        }
+      }
 
         //    View inventory = new View(GetData());
         /*inventory.atoz();

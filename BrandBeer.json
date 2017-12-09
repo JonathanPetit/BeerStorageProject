@@ -1,1 +1,2 @@
-[{"name": "BrewerName", "address": "BrewerAddress", "number": "0", "beersList": ["BeerName"]}]
+[{"name": "BrandBeerName", "address": "BrewerAddress", "number": "0", "beersList": ["BeerName",
+  "SecondBeer"]}]
