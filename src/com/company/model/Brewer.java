@@ -36,4 +36,24 @@ public class Brewer {
   }
 
   public void RemoveBrand(BrandBeer brand) {this.brandsList.remove(brand);}
+
+  @Override
+  public String toString(){
+    String toString = "{";
+    toString += "name: "+this.getName();
+    toString += ", address: "+this.getAddress();
+    toString += ", number: "+this.getNumber();
+    toString += ", brandsList: [";
+    ArrayList<BrandBeer> brandBeers = getBrandList();
+    for (BrandBeer brandBeer:brandBeers){
+      toString += brandBeer.toString();
+      if (brandBeer != brandBeers.get(brandBeers.size()-1)){
+        toString += ",";
+      }
+    }
+    toString += "]}";
+    return toString;
+  }
+
+
 }
