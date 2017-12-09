@@ -1,1 +1,10 @@
-[{"name": "BrewerName", "address": "BrewerAddress", "number": "0", "brandsList": ["BrandBeerName"]}]
+[
+  {
+    "name": "BrewerName",
+    "address": "BrewerAddress",
+    "number": "0",
+    "brandsList": [
+      "BrandBeerName"
+    ]
+  }
+]

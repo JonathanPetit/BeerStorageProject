@@ -14,7 +14,7 @@ public class Beer {
   private double evaluation;
 
   public Beer(String name, String type, double degree, double conditioning, double price,
-                   int evaluation) {
+                   double evaluation) {
     this.name = name;
     this.type = type;
     this.degree = degree;

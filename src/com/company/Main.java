@@ -11,75 +11,80 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        /*Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
-        BrandBeer brandBeer = new BrandBeer("BrandBeerName","BrewerAddress","0");
-        Beer beer = new Beer("BeerName", "BeerType", 8.3, 4.0,3.5, 9);
-        System.out.println(beer.toString());
+    //Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
+    BrandBeer brandBeer = new BrandBeer("OtherBrandBeer","BrandAddress","15");
+    //Beer beer = new Beer("OtherBeer", "BullShit", 0.2, 15.0,0.3, 0);
 
-        brandBeer.addBeer(beer);
+    //brandBeer.addBeer(beer);
 
-        System.out.println("BrandBeer: "+brandBeer.toString());
+    //System.out.println("BrandBeer: "+brandBeer.toString());
 
-        testBrewer.addBrand(brandBeer);
+    //testBrewer.addBrand(brandBeer);
 
-        System.out.println(testBrewer.toString());
+    //System.out.println(testBrewer.toString());
 
-      JsonWrite writeJson = new JsonWrite();
-      writeJson.WriteFile("Beer", beer);
-      writeJson.WriteFile("Brewer",testBrewer);
-      writeJson.WriteFile("BrandBeer",brandBeer);*/
-      JsonRead jsonRead = new JsonRead();
-      /*List<Object> read = jsonRead.ReadFile("Beer");
-      for (Object obj:read){
-        System.out.println(obj.toString());
-      }*/
+    JsonWrite writeJson = new JsonWrite();
+    //writeJson.WriteFile("Beer", beer);
+    //writeJson.WriteFile("Brewer",testBrewer);
+    //writeJson.WriteFile("BrandBeer",brandBeer);
+    JsonRead jsonRead = new JsonRead();
+    Beer beer = (Beer) jsonRead.getByName("Beer","OtherBeer");
 
-      Brewer brewerObject = (Brewer) jsonRead.getByName("Brewer","BrewerName");
-      System.out.println("Brewer: "+brewerObject);
+    brandBeer.addBeer(beer);
 
-      System.out.println("BrandBeers: ");
-      for (BrandBeer brandBeer:brewerObject.getBrandList()){
-        BrandBeer brandBeerObject = (BrandBeer) jsonRead.getByName("BrandBeer",brandBeer.getName
-                ());
-        System.out.println(brandBeerObject);
-        System.out.println("Beers: ");
-        for (Beer beer:brandBeerObject.getBeersList()){
-          Beer beerObject = (Beer) jsonRead.getByName("Beer",beer.getName());
-          System.out.println(beerObject);
-        }
+    writeJson.WriteFile("BrandBeer",brandBeer);
+
+    List<Object> read = jsonRead.ReadFile("BrandBeer");
+    for (Object obj:read){
+      System.out.println(obj.toString());
+    }
+
+    /*Brewer brewerObject = (Brewer) jsonRead.getByName("Brewer","BrewerName");
+    System.out.println("Brewer: "+brewerObject);
+
+    System.out.println("BrandBeers: ");
+    for (BrandBeer brandBeer:brewerObject.getBrandList()){
+      BrandBeer brandBeerObject = (BrandBeer) jsonRead.getByName("BrandBeer",brandBeer.getName
+              ());
+      System.out.println(brandBeerObject);
+      System.out.println("Beers: ");
+      for (Beer beer:brandBeerObject.getBeersList()){
+        Beer beerObject = (Beer) jsonRead.getByName("Beer",beer.getName());
+        System.out.println(beerObject);
+      }
+    }*/
+
+      //    View inventory = new View(GetData());
+      /*inventory.atoz();
+      inventory.ztoa();
+      inventory.search("Pils");*/
+      Scanner scn = new Scanner(System.in);
+      //    Controller controller = new Controller(inventory);
+      //Inventory inventory = new Inventory();
+      //View view = new View();
+
+      System.out.println("Entrez une commande");
+
+      String com ="start";
+
+      while(!Objects.equals(com, "exit")) {
+          System.out.print(">> \t");
+          String command = scn.nextLine();
+          // A command should be formatted as: command [-option] [value]
+          String elements[] = command.split(" ");
+
+          //    controller.parseCommand(elements);
+
+          /*for(int i = 0; i<elements.length; i++){
+              System.out.println(i + " " + elements[0]);
+          }*/
+
+          com = elements[0];
       }
 
-        //    View inventory = new View(GetData());
-        /*inventory.atoz();
-        inventory.ztoa();
-        inventory.search("Pils");*/
-        Scanner scn = new Scanner(System.in);
-        //    Controller controller = new Controller(inventory);
-        //Inventory inventory = new Inventory();
-        //View view = new View();
-
-        System.out.println("Entrez une commande");
-
-        String com ="start";
-
-        while(!Objects.equals(com, "exit")) {
-            System.out.print(">> \t");
-            String command = scn.nextLine();
-            // A command should be formatted as: command [-option] [value]
-            String elements[] = command.split(" ");
-
-            //    controller.parseCommand(elements);
-
-            /*for(int i = 0; i<elements.length; i++){
-                System.out.println(i + " " + elements[0]);
-            }*/
-
-            com = elements[0];
-        }
-
-    }
+  }
 
 
 

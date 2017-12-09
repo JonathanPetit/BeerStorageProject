@@ -25,7 +25,7 @@ public class JsonRead {
     Double degree = 0.0;
     Double conditioning = 0.0;
     Double price = 0.0;
-    Integer evaluation = 0;
+    Double evaluation = 0.0;
 
     String number = "0";
     List<String> brandsList = new ArrayList<>();
@@ -54,7 +54,7 @@ public class JsonRead {
               degree = Double.parseDouble((String) jsonObject.get("degree"));
               conditioning = Double.parseDouble((String)jsonObject.get("conditioning"));
               price = Double.parseDouble((String) jsonObject.get("price"));
-              evaluation = Integer.parseInt((String) jsonObject.get("evaluation"));
+              evaluation = Double.parseDouble((String) jsonObject.get("evaluation"));
               beer = new Beer(name,type,degree,conditioning,price,evaluation);
               jsonRead.add(beer);
               break;
