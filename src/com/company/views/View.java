@@ -13,24 +13,25 @@ public class View {
 
     public View(List<Brewer> list_from_db){
         //Begin with a A to Z sorting
-        Collections.sort(list_from_db);
+        //  Collections.sort(list_from_db);
         this.listing = list_from_db;
     }
 
     //Display inventory with a A to Z sorting methode
     public void atoz() {
-        this.GetListing().forEach(item->display_Brewer(item));
+        //  this.GetListing().forEach(item->display_Brewer(item));
     }
 
     //Display inventory with a Z to A sorting methode
     public void ztoa() {
         List<Brewer>list = GetListing();
         Collections.reverse(list);
-        list.forEach(item->display_Brewer(item));
+        //  list.forEach(item->display_Brewer(item));
     }
 
 
     //Check if we find a query in inventory and display the Brewer where he find it.
+    /*
     public void search(String query)
     {
         for(Brewer b : this.GetListing()) {
@@ -67,4 +68,5 @@ public class View {
         System.out.println("");
         System.out.println("---------------------------------------------");
     }
+    */
 }

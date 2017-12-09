@@ -41,15 +41,15 @@ public class BrandBeer {
   @Override
   public String toString(){
     String toString = "{";
-    toString += "name: "+this.name;
-    toString += ", address: "+this.address;
-    toString += ", number: "+this.number;
-    toString += ", beersList: [";
+    toString += "\"name\": \""+this.name;
+    toString += "\", \"address\": \""+this.address;
+    toString += "\", \"number\": \""+this.number;
+    toString += "\", \"beersList\": [";
     ArrayList<Beer> beers = this.beersList;
     for (Beer beer:beers){
-      toString += beer.toString();
+      //toString += beer.toString();
       //Other possibility: just add beer name
-      //toString += beer.getName();
+      toString += "\""+beer.getName()+"\"";
       if (beer != beers.get(beers.size()-1)){
         toString += ", ";
       }
