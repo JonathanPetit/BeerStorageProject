@@ -1,10 +1,6 @@
 package com.company.model;
 
-import com.company.Json.JsonRead;
-
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class BrandBeer {
   private String name;
@@ -16,7 +12,7 @@ public class BrandBeer {
     this.name = name;
     this.address = address;
     this.number = number;
-    this.beersList = new ArrayList<Beer>();
+    this.beersList = new ArrayList<>();
   }
 
   public String getName() {
@@ -61,7 +57,7 @@ public class BrandBeer {
     for (Beer beer:beers){
       //toString += beer.toString();
       //Other possibility: just add beer name
-      toString += "\""+beer.getName()+"\"";
+      toString = toString.concat("\""+beer.getName()+"\"");
       if (beer != beers.get(beers.size()-1)){
         toString += ", ";
       }

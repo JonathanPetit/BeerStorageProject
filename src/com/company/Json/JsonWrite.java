@@ -3,7 +3,6 @@ package com.company.Json;
 import com.company.model.Beer;
 import com.company.model.BrandBeer;
 import com.company.model.Brewer;
-import com.sun.jdi.Value;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,14 +10,9 @@ import java.util.List;
 
 public class JsonWrite {
   /**
-   *
+   * Writes an object to a file
    * @param name: Type of the Object, "Beer", "BrandBeer" or "Brewer"
    * @param object: Object that needs to be added to the file name".json"
-   *
-   * Existing Methods:
-   *  WriteFile(String name,Object object)
-   *    returns nothing
-   *    adds the object.toString at the end of the name.json file
    */
   public void writeFile(String name, Object object, Boolean update) {
     JsonRead jsonRead = new JsonRead();
@@ -27,7 +21,6 @@ public class JsonWrite {
     List<Object> objects = jsonRead.readFile(name);
 
     // If the object is not in the file yet: add it
-    int objectsSize = objects.size();
     // open Json Array
     String stringToWrite = "[";
     try {
@@ -116,7 +109,7 @@ public class JsonWrite {
   }
 
   /**
-   * Update a file based on some criteria
+   * Updates a file based on some criteria
    * @param name: type of the data in the file (Beer, Brewer, BrandBeer)
    * @param objectName: name of the Object that needs to be changed
    * @param KeyToUpdate: key of the Object from which the value needs to change

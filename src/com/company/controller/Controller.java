@@ -29,7 +29,7 @@ public class Controller {
     }
 
     public ArrayList<String> parseCommand(String elements) {
-        ArrayList<String> parserReturn = new ArrayList<String>();
+        ArrayList<String> parserReturn = new ArrayList<>();
         elements = elements.trim();
         String[] parseElement = elements.split("\\s+'");
 

@@ -1,7 +1,5 @@
 package com.company.model;
 
-import com.company.Json.JsonWrite;
-
 import java.util.ArrayList;
 
 public class Brewer {
@@ -59,7 +57,7 @@ public class Brewer {
     for (BrandBeer brandBeer:brandBeers){
       //toString += brandBeer.toString();
       //Other possibility: just add brandBeer name
-      toString += "\""+brandBeer.getName()+"\"";
+      toString = toString.concat("\""+brandBeer.getName()+"\"");
       if (brandBeer != brandBeers.get(brandBeers.size()-1)){
         toString += ",";
       }
