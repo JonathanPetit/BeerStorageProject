@@ -13,33 +13,37 @@ import java.util.stream.Collectors;
 public class Main {
   public static void main(String[] args) {
 
-    //Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
+    Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
     BrandBeer brandBeer = new BrandBeer("OtherBrandBeer","BrandAddress","15");
-    //Beer beer = new Beer("OtherBeer", "BullShit", 0.2, 15.0,0.3, 0);
+    Beer beer = new Beer("OtherBeer", "BullShit", 0.2, 15.0,0.3, 0);
 
     //brandBeer.addBeer(beer);
 
-    //System.out.println("BrandBeer: "+brandBeer.toString());
+    testBrewer.addBrand(brandBeer);
 
-    //testBrewer.addBrand(brandBeer);
-
-    //System.out.println(testBrewer.toString());
-
-    JsonWrite writeJson = new JsonWrite();
-    //writeJson.WriteFile("Beer", beer);
-    //writeJson.WriteFile("Brewer",testBrewer);
-    //writeJson.WriteFile("BrandBeer",brandBeer);
+    JsonWrite jsonWrite = new JsonWrite();
+    jsonWrite.writeFile("Beer", beer, false);
+    jsonWrite.updateFile("Beer","OtherBeer","price","3.3");
+    //jsonWrite.writeFile("Brewer",testBrewer, false);
+    //jsonWrite.writeFile("BrandBeer",brandBeer, false);
     JsonRead jsonRead = new JsonRead();
-    Beer beer = (Beer) jsonRead.getByName("Beer","OtherBeer");
 
-    brandBeer.addBeer(beer);
+    List<Object> searchBeer = jsonRead.getByArg("BrandBeer","beersList","OtherBeer");
+    System.out.println(searchBeer.size());
+    for (Object search:searchBeer){
+      System.out.println("result: ");
+      System.out.println(search);
+    }
+    //Beer beer = (Beer) jsonRead.getByName("Beer","TK");
 
-    writeJson.WriteFile("BrandBeer",brandBeer);
+    //brandBeer.addBeer(beer);
 
-    List<Object> read = jsonRead.ReadFile("BrandBeer");
+    //writeJson.WriteFile("BrandBeer",brandBeer);
+
+    /*List<Object> read = jsonRead.ReadFile("BrandBeer");
     for (Object obj:read){
       System.out.println(obj.toString());
-    }
+    }*/
 
     /*Brewer brewerObject = (Brewer) jsonRead.getByName("Brewer","BrewerName");
     System.out.println("Brewer: "+brewerObject);

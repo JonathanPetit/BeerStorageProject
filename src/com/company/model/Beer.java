@@ -43,8 +43,16 @@ public class Beer {
     return price;
   }
 
+  public void setPrice(Double price) {
+    this.price = price;
+  }
+
   public double getEvaluation() {
     return evaluation;
+  }
+
+  public void setEvaluation(Double evaluation) {
+    this.evaluation = evaluation;
   }
 
   @Override

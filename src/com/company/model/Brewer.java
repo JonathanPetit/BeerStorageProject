@@ -1,9 +1,8 @@
 package com.company.model;
 
-import com.company.Json.JsonRead;
+import com.company.Json.JsonWrite;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Brewer {
   private String name;
@@ -15,7 +14,7 @@ public class Brewer {
     this.name = name;
     this.address = address;
     this.number = number;
-    this.brandsList = new ArrayList<BrandBeer>();
+    this.brandsList = new ArrayList<>();
   }
 
   public String getName() {
@@ -26,8 +25,16 @@ public class Brewer {
     return address;
   }
 
+  public void setAddress(String address){
+    this.address = address;
+  }
+
   public String getNumber() {
     return number;
+  }
+
+  public void setNumber(String number){
+    this.number = number;
   }
 
   public ArrayList<BrandBeer> getBrandList() {
@@ -39,7 +46,6 @@ public class Brewer {
   }
 
   public void RemoveBrand(BrandBeer brand) {this.brandsList.remove(brand);}
-
 
 
   @Override

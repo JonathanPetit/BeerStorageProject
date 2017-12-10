@@ -27,8 +27,16 @@ public class BrandBeer {
     return address;
   }
 
+  public void setAddress(String address){
+    this.address = address;
+  }
+
   public String getNumber() {
     return number;
+  }
+
+  public void setNumber(String number){
+    this.number = number;
   }
 
   public ArrayList<Beer> getBeersList() {
@@ -39,7 +47,7 @@ public class BrandBeer {
     this.beersList.add(beer);
   }
 
-  public void RemoveBeer(Beer beer) {this.beersList.remove(beer);}
+  public void removeBeer(Beer beer) {this.beersList.remove(beer);}
 
 
   @Override
