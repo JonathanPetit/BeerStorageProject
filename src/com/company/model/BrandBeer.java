@@ -55,6 +55,7 @@ public class BrandBeer {
     toString += "\", \"beersList\": [";
     ArrayList<Beer> beers = this.beersList;
     for (Beer beer:beers){
+      // First possibility: add beer to string (with all data)
       //toString += beer.toString();
       //Other possibility: just add beer name
       toString = toString.concat("\""+beer.getName()+"\"");

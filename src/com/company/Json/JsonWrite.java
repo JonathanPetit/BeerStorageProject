@@ -154,6 +154,8 @@ public class JsonWrite {
               case "addBrand":
                 brewer.addBrand((BrandBeer) ValueToUpdate);
                 break;
+              case "removeBrand":
+                brewer.RemoveBrand((BrandBeer) ValueToUpdate);
               case "number":
                 brewer.setNumber((String) ValueToUpdate);
                 break;
