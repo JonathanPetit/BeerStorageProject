@@ -1,5 +1,5 @@
 package com.company;
-import com.company.views.*;
+//import com.company.views.*;
 import com.company.model.*;
 import com.company.controller.Controller;
 
@@ -11,39 +11,28 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 
-        View inventory = new View(GetData());
-        /*inventory.atoz();
-        inventory.ztoa();
-        inventory.search("Pils");*/
-        Scanner scn = new Scanner(System.in);
-        Controller controller = new Controller(inventory);
-        //Inventory inventory = new Inventory();
-        //View view = new View();
+        Controller controller = new Controller();
 
-        System.out.println("Entrez une commande");
+        ArrayList options = new ArrayList();
+        options.add("beer");
+        options.add("brand");
+        options.add("brewer");
 
-        String com ="start";
+        controller.addCommands("exit", new ArrayList<>());
+        controller.addCommands("help", new ArrayList<>());
+        controller.addCommands("add", options);
+        controller.addCommands("edit", options);
+        controller.addCommands("remove", options);
 
-        while(!Objects.equals(com, "exit")) {
-            System.out.print(">> \t");
-            String command = scn.nextLine();
-            // A command should be formatted as: command [-option] [value]
-            String elements[] = command.split(" ");
+        options.add("all");
+        controller.addCommands("info", options);
 
-            controller.parseCommand(elements);
-
-            /*for(int i = 0; i<elements.length; i++){
-                System.out.println(i + " " + elements[0]);
-            }*/
-
-            com = elements[0];
-        }
-
+        controller.run();
     }
 
 
 
-
+/*
     public static List<Brewer>GetData(){
         Brewer Artois = new Brewer("Artois");
         BrandBeer Leffe = new BrandBeer("Leffe");
@@ -76,6 +65,6 @@ public class Main {
 
         return list;
 
-    }
+    }*/
 }
 

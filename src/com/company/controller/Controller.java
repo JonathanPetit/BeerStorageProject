@@ -1,15 +1,14 @@
 package com.company.controller;
-import java.util.*;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 
-//import Inventory
-import com.company.views.View;
-import com.company.model.Brewer;
+import com.company.model.*;
+
+import java.util.*;
+import java.sql.Connection;
+import java.lang.reflect.*;
 
 
 public class Controller {
-    public Hashtable<String, ArrayList<String>> commandsList;
+    private Hashtable<String, ArrayList<String>> commandsList;
 
     public Controller(){
         this.commandsList = new Hashtable<String, ArrayList<String>>();
@@ -19,42 +18,101 @@ public class Controller {
         this.commandsList.put(key, options);
     }
 
-    public boolean help(){
+    private void help(){
         System.out.println("Help method");
-        return true;
     }
 
-    public void exit() {
+    private void exit() {
         System.exit(0);
     }
 
-    public ArrayList<String> parseCommand(String elements) {
+    private ArrayList<String> parseCommand(String elements) {
+        String options = "";
         ArrayList<String> parserReturn = new ArrayList<String>();
         elements = elements.trim();
         String[] parseElement = elements.split("\\s+'");
 
-        if (parseElement.length > 3) {
-            System.out.println("Invalid input");
-            this.exit();
+        if (parseElement.length < 1) {
+            System.out.println("Please enter a command");
+            return parserReturn;
         }
 
-        String command = parseElement[1];
-        String options = parseElement[2];
+        String command = parseElement[0];
         if (!this.commandsList.containsKey(command)) {
             System.out.println("Command invalid");
-            this.exit();
+            parserReturn.add("help");
+            return parserReturn;
         } else {
             ArrayList validOption = this.commandsList.get(command);
+            parserReturn.add(command);
+
+            if (validOption.size() == 0) {
+                return parserReturn;
+            }
+
+            try {
+                options = parseElement[1];
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Please enter a option");
+                return parserReturn;
+            }
+
             if (!validOption.contains(options)) {
                 System.out.println("Option invalid");
-                this.exit();
+                return parserReturn;
             }
-        }
 
-        parserReturn.add(command);
-        parserReturn.add(options);
-        parserReturn.add(parseElement[3]);
-        return parserReturn;
+            parserReturn.add(options);
+
+            if (parseElement[2] != null) {
+                parserReturn.add(parseElement[2]);
+            }
+
+            return parserReturn;
+        }
+    }
+
+    private boolean reflexionElement(ArrayList<String> parseCommand) {
+        try {
+            Class c = this.getClass();
+            Method m = c.getDeclaredMethod(parseCommand.get(0));
+            System.out.print(m);
+        } catch (NoSuchMethodException e) {
+            this.exit();
+        }
+        return true;
+    }
+
+    private boolean add(ArrayList<String> parseCommand) {
+        return false;
+    }
+
+    private boolean edit(ArrayList<String> parseCommand) {
+        return false;
+    }
+
+    private boolean remove(ArrayList<String> parsedCommand) {
+        return false;
+    }
+
+    private boolean info(ArrayList parsedCommand) {
+        return false;
+    }
+
+    public void run(){
+        Inventory inventory = new Inventory();
+
+        while(true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print(">> ");
+            String command = scanner.nextLine();
+            ArrayList<String> parseCommand = this.parseCommand(command);
+            for (int i = 0; i < parseCommand.size(); i++) {
+                System.out.println(parseCommand.get(i));
+            }
+
+            this.reflexionElement(parseCommand);
+        }
     }
     
 

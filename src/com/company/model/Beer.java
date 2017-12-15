@@ -19,26 +19,27 @@ public class Beer {
   }
 
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public String getType() {
-    return type;
+    return this.type;
   }
 
   public double getDegree() {
-    return degree;
+    return this.degree;
   }
 
   public double getConditioning() {
-    return conditioning;
+    return this.conditioning;
   }
 
   public double getPrice() {
-    return price;
+    return this.price;
   }
 
   public double getEvaluation() {
-    return evaluation;
+    return this.evaluation;
   }
+
 }
