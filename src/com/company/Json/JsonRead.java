@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.company.model.Beer;
-import com.company.model.BrandBeer;
+import com.company.model.Brand;
 import com.company.model.Brewer;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -39,7 +39,7 @@ public class JsonRead {
 
     Beer beer;
     Brewer brewer;
-    BrandBeer brandBeer;
+    Brand brandBeer;
 
 
     JSONParser parser = new JSONParser();
@@ -80,7 +80,7 @@ public class JsonRead {
               // Create Object
               brewer = new Brewer(name,address,number);
               for (Object brandBeerName:brandsList) {
-                brandBeer = (BrandBeer) getByName("BrandBeer",(String) brandBeerName);
+                brandBeer = (Brand) getByName("BrandBeer",(String) brandBeerName);
                 brewer.addBrand(brandBeer);
               }
               // Add to list
@@ -94,7 +94,7 @@ public class JsonRead {
               JSONArray jsonArray1 = (JSONArray) jsonObject.get("beersList");
               beersList = (List<Object>) jsonArray1;
               // Create Object
-              brandBeer = new BrandBeer(name,address,number);
+              brandBeer = new Brand(name,address,number);
               for (Object beerName:beersList){
                 beer = (Beer) getByName("Beer",(String) beerName);
                 brandBeer.addBeer(beer);
@@ -186,8 +186,8 @@ public class JsonRead {
             objectList.add(brewer);
           }
           else if (arg.equals("brandsList")){
-            List<BrandBeer> brandsList = brewer.getBrandList();
-            for (BrandBeer brandBeer:brandsList){
+            List<Brand> brandsList = brewer.getBrandList();
+            for (Brand brandBeer:brandsList){
               if (brandBeer.getName().equals(value)){
                 objectList.add(brewer);
                 break;
@@ -200,7 +200,7 @@ public class JsonRead {
           }
           break;
         case "BrandBeer":
-          BrandBeer brandBeer = (BrandBeer) object;
+          Brand brandBeer = (Brand) object;
           System.out.println(brandBeer);
           if (arg.equals("name") && brandBeer.getName().equals(value)){
             objectList.add(brandBeer);

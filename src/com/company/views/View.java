@@ -28,7 +28,7 @@ public class View {
         if (entete == null) {
           entete = String.format("%20s%20s%20s%20s","Name","Address","Number","BeersList");
         }
-        BrandBeer brandBeer = (BrandBeer) item;
+        Brand brandBeer = (Brand) item;
         text = text.concat(brandBeer.beautifulString()+"\n");
       }
     }

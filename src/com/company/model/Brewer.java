@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Brewer {
   private String name;
   private String address;
-  private ArrayList<BrandBeer> brandsList;
+  private ArrayList<Brand> brandsList;
   private String number;
 
   public Brewer(String name, String address, String number) {
@@ -35,15 +35,15 @@ public class Brewer {
     this.number = number;
   }
 
-  public ArrayList<BrandBeer> getBrandList() {
+  public ArrayList<Brand> getBrandList() {
     return brandsList;
   }
 
-  public void addBrand(BrandBeer brand){
+  public void addBrand(Brand brand){
     this.brandsList.add(brand);
   }
 
-  public void RemoveBrand(BrandBeer brand) {this.brandsList.remove(brand);}
+  public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
 
 
   @Override
@@ -53,8 +53,8 @@ public class Brewer {
     toString += "\", \"address\": \""+this.address;
     toString += "\", \"number\": \""+this.number;
     toString += "\", \"brandsList\": [";
-    ArrayList<BrandBeer> brandBeers = this.brandsList;
-    for (BrandBeer brandBeer:brandBeers){
+    ArrayList<Brand> brandBeers = this.brandsList;
+    for (Brand brandBeer:brandBeers){
       // First possibility: add brandBeer to string (so with all data)
       // toString += brandBeer.toString();
       // Other possibility: just add brandBeer name
