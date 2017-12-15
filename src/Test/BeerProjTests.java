@@ -37,7 +37,7 @@ public class BeerProjTests
     @Test
     public void BrandTest(){
         BrandBeer brand = new BrandBeer("Pechmel","Here","69");
-        Assert.assertEquals("Should be PechMel","PechMel",brand.getName());
+        Assert.assertEquals("Should be PechMel","Pechmel",brand.getName());
         Assert.assertEquals("Should be Here","Here",brand.getAddress());
         Assert.assertEquals("Should be 69","69",brand.getNumber());
         Beer beer= new Beer("Jup","Pils",6,50,2.5,5);
