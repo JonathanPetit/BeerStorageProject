@@ -24,17 +24,36 @@ public class View {
     String text = "";
     for (Object item:listing){
       String objectType = item.getClass().toString();
-      if (objectType.contains("BrandBeer")) {
+      if (objectType.contains("Brand")) {
         if (entete == null) {
           entete = String.format("%20s%20s%20s%20s","Name","Address","Number","BeersList");
         }
         Brand brandBeer = (Brand) item;
         text = text.concat(brandBeer.beautifulString()+"\n");
       }
+      else if (objectType.contains("Beer")){
+        if (entete == null){
+          entete = String.format("%20s%20s%20s%20s%20s%20s","Name","type","Degree","Conditioning",
+                  "Price", "Evaluation");
+          //String name, String type, double degree, double conditioning, double price,
+          //                   double evaluation
+        }
+        Beer beer = (Beer) item;
+        text = text.concat(beer.beautifulString()+"\n");
+      }
+      else if (objectType.contains("Brewer")){
+        if (entete == null){
+          entete = String.format("%20s%20s%20s%20s","Name","Address","Number","BrandsList");
+        }
+        Brewer brewer = (Brewer) item;
+        text = text.concat(brewer.beautifulString()+"\n");
+      }
+      else {
+        System.out.println("none");
+      }
     }
     System.out.println(entete);
     System.out.println(text);
-    //this.GetListing().forEach(item->item.toString());
   }
 
   //Display inventory with a Z to A sorting methode

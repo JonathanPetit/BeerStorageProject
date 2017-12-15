@@ -45,7 +45,21 @@ public class Brewer {
 
   public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
 
-
+  public String beautifulString() {
+    ArrayList<Brand> brands = this.brandsList;
+    String brandsString = "";
+    for (Brand brand:brands) {
+      // First possibility: add beer to string (with all data)
+      //toString += beer.toString();
+      //Other possibility: just add beer name
+      brandsString = brandsString.concat(brand.getName());
+      if (brand != brands.get(brands.size() - 1)) {
+        brandsString += ", ";
+      }
+    }
+    return String.format("%20s%20s%20s%20s",
+            this.name, this.address, this.number,brandsString);
+  }
   @Override
   public String toString(){
     String toString = "{";
