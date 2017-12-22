@@ -1,10 +1,1 @@
-[
-  {
-    "name": "BrewerName",
-    "address": "BrewerAddress",
-    "number": "0",
-    "brandsList": [
-      "BrandBeerName"
-    ]
-  }
-]
+[{"name": "Bush", "address": "LLN", "number": "3", "brandsList": []},{"name": "Bush", "address": "LLN", "number": "1", "brandsList": []},{"name": "Bush", "address": "LLN", "number": "3", "brandsList": []}]

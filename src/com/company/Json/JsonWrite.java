@@ -1,7 +1,7 @@
 package com.company.Json;
 
 import com.company.model.Beer;
-import com.company.model.BrandBeer;
+import com.company.model.Brand;
 import com.company.model.Brewer;
 
 import java.io.FileWriter;
@@ -51,14 +51,14 @@ public class JsonWrite {
           break;
         case "BrandBeer":
           // 1)
-          BrandBeer brandBeerObject = (BrandBeer) object;
+          Brand brandBeerObject = (Brand) object;
           // 2)
           objects.add(brandBeerObject);
           // 3)
           i = 0;
           while (i < objects.size()) {
             Object brandBeer = objects.get(i);
-            if (brandBeerObject.getName().equals(((BrandBeer) brandBeer).getName()) && update){
+            if (brandBeerObject.getName().equals(((Brand) brandBeer).getName()) && update){
               update = false;
             }
             else {
