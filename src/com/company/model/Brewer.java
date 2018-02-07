@@ -41,7 +41,6 @@ public class Brewer {
 
   // Function to remove a brand into the brandList of a brewer.
   public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
-
   public String beautifulString() {
     ArrayList<Brand> brands = this.brandsList;
     String brandsString = "";
