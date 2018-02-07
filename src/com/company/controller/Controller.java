@@ -1,26 +1,13 @@
 package com.company.controller;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-//import Inventory
-import com.company.views.*;
-import com.company.model.*;
-=======
-=======
 import com.company.Json.JsonRead;
 import com.company.Json.JsonWrite;
->>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 import com.company.model.*;
 import com.company.views.View;
 
 import java.util.*;
 import java.lang.reflect.*;
-<<<<<<< HEAD
->>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
-
-=======
 import java.lang.reflect.Constructor;
->>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 
 public class Controller {
     /*
@@ -35,6 +22,10 @@ public class Controller {
 
     private Controller(){
         this.commandsList = new Hashtable<String, ArrayList<String>>();
+    }
+
+    public Hashtable<String, ArrayList<String>> getCommandsList() {
+        return commandsList;
     }
 
     // Create and set unique instance of Controller class. (Singleton pattern)
@@ -61,12 +52,6 @@ public class Controller {
         System.exit(0);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public ArrayList<String> parseCommand(String elements) {
-        ArrayList<String> parserReturn = new ArrayList<>();
-=======
-=======
     // Add method, add a object to json "database".
     private void add(ArrayList<String> parsedCommand) {
         // Init.
@@ -181,12 +166,10 @@ public class Controller {
     }
 
     // Method to parse command entry.
->>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
-    private ArrayList<String> parseCommand(String elements) {
+    public ArrayList<String> parseCommand(String elements) {
         // Init.
         String options = null;
         ArrayList<String> parserReturn = new ArrayList<String>();
->>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
         elements = elements.trim();
         String[] parseElement = elements.split("\\s+");
 
@@ -238,7 +221,7 @@ public class Controller {
     }
 
     // Methods to call the good function for reflexion.
-    private boolean reflexionCommand(ArrayList<String> parsedCommand) {
+    private void reflexionCommand(ArrayList<String> parsedCommand) {
         //Init
         Method m;
 
@@ -259,7 +242,6 @@ public class Controller {
             System.out.print(e);
             this.exit();
         }
-        return true;
     }
 
     // Method to format target (up first letter).
@@ -269,7 +251,7 @@ public class Controller {
     }
 
     // List of param's Brewer for reflexion.
-    private ArrayList<String> getParamsBrewer() {
+    public ArrayList<String> getParamsBrewer() {
         ArrayList<String> params = new ArrayList<String>();
         params.add("name");
         params.add("address");
@@ -278,7 +260,7 @@ public class Controller {
     }
 
     // List of param's Brand for reflexion.
-    private ArrayList<String> getParamsBrand() {
+    public ArrayList<String> getParamsBrand() {
         ArrayList<String> params = new ArrayList<String>();
         params.add("name");
         params.add("address");
@@ -287,7 +269,7 @@ public class Controller {
     }
 
     // List of param's Beer for reflexion.
-    private ArrayList<String> getParamsBeer() {
+    public ArrayList<String> getParamsBeer() {
         ArrayList<String> params = new ArrayList<String>();
         params.add("name");
         params.add("type");
@@ -305,6 +287,8 @@ public class Controller {
             // Set view commands to display.
             view.setCommands(this.commandsList);
             view.display();
+
+
             System.out.print(">> ");
             // Scan entry.
             String command = scanner.nextLine();

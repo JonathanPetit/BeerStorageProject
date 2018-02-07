@@ -42,29 +42,8 @@ public class Beer {
   public double getEvaluation() {
     return evaluation;
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   /**
-   * Set the evaluation of the Beer Object
-   * @param evaluation: a Double with the new evaluation
-   */
-  public void setEvaluation(Double evaluation) {
-    this.evaluation = evaluation;
-  }
-
-<<<<<<< HEAD
-=======
-  public String beautifulString(){
-    return String.format("%20s%20s%20s%20s%20s%20s",
-            this.name, this.type, this.degree,this.conditioning,this.price, this.evaluation);
-  }
->>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
-  /**
-=======
-
-  /**
->>>>>>> a47aa3b60271dacf72c4cbebe1e2e79fb3d184e3
    * Override the "toString" method of an Object
    * @return a String with the Object with Json structure
    */
@@ -73,9 +52,4 @@ public class Beer {
     return String.format("%20s%20s%20s%20s%20s%20s",
             this.name, this.type, this.degree,this.conditioning,this.price, this.evaluation);
   }
-<<<<<<< HEAD
-=======
->>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
-=======
->>>>>>> a47aa3b60271dacf72c4cbebe1e2e79fb3d184e3
 }
