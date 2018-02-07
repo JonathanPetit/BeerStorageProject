@@ -1,5 +1,6 @@
 package com.company;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.company.Json.JsonRead;
 import com.company.Json.JsonWrite;
 import com.company.views.*;
@@ -8,15 +9,17 @@ import com.company.views.*;
 >>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 import com.company.model.*;
 import com.company.controller.*;
+=======
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 
+import com.company.controller.Controller;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Main {
   public static void main(String[] args) {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
     BrandBeer brandBeer = new BrandBeer("OtherBrandBeer","BrandAddress","15");
@@ -101,23 +104,25 @@ public class Main {
     /*
 =======
         Controller controller = new Controller();
+=======
+        Controller controller = Controller.getInstance();
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 
         ArrayList options = new ArrayList();
         options.add("beer");
         options.add("brand");
         options.add("brewer");
 
+
+        controller.addCommands("add", options);
+        controller.addCommands("remove", options);
+        controller.addCommands("info", options);
         controller.addCommands("exit", new ArrayList<>());
         controller.addCommands("help", new ArrayList<>());
-        controller.addCommands("add", options);
-        controller.addCommands("edit", options);
-        controller.addCommands("remove", options);
-
-        options.add("all");
-        controller.addCommands("info", options);
 
         controller.run();
     }
+<<<<<<< HEAD
 
 
 
@@ -161,5 +166,7 @@ public class Main {
 =======
     }*/
 >>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
+=======
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 }
 

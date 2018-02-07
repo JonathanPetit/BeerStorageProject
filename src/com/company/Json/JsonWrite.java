@@ -1,5 +1,6 @@
 package com.company.Json;
 
+<<<<<<< HEAD
 import com.company.model.Beer;
 <<<<<<< HEAD
 import com.company.model.BrandBeer;
@@ -8,11 +9,15 @@ import com.company.model.Brand;
 >>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 import com.company.model.Brewer;
 
+=======
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import org.json.simple.JSONObject;
 
 public class JsonWrite {
+<<<<<<< HEAD
   /**
    * Writes an object to a file
    * @param name: Type of the Object, "Beer", "BrandBeer" or "Brewer"
@@ -75,53 +80,49 @@ public class JsonWrite {
             if (brandBeerObject.getName().equals(((Brand) brandBeer).getName()) && update){
 >>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
               update = false;
-            }
-            else {
-              stringToWrite = stringToWrite.concat(brandBeer.toString());
-              if (i != objects.size() - 1) {
-                stringToWrite += ",";
-              }
-            }
-            i++;
-          }
-          break;
-        case "Brewer":
-          // 1)
-          Brewer brewerObject = (Brewer) object;
-          // 2)
-          objects.add(brewerObject);
-          // 3)
-          i = 0;
-          while (i < objects.size()) {
-            Object brewer = objects.get(i);
-            if (brewerObject.getName().equals(((Brewer) brewer).getName()) && update){
-              update = false;
-            }
-            else {
-              stringToWrite = stringToWrite.concat(brewer.toString());
-              if (i != objects.size() - 1) {
-                stringToWrite += ",";
-              }
-            }
-            i++;
-          }
-          break;
-        default:
-          //
-      }
-      // close Json Array
-      stringToWrite += "]";
+=======
+    /**
+     * Writes an object to a file
+     * @param target: String Object, "Beer", "BrandBeer" or "Brewer".
+     * @param objectList: List of parameters values.
+     * @param params: List of Class parameters.
+    */
+    public void writeFile(String target, ArrayList<Object> objectList, ArrayList<String> params) {
+        // Initialize some variable
+        ArrayList<String> objects = new ArrayList<String>();
+        FileWriter fileWriter;
 
-      // write the entire string to the file
-      fileWriter.write(stringToWrite);
+        try {
+            // Target the good file and the good class
+            fileWriter = new FileWriter(formatTarget(target)+".json");
+            Class c = Class.forName("com.company.model." + target);
 
-      // finish writing
-      fileWriter.flush();
+            //Create the Json Object with reflexion
+            for (int i = 0; i < objectList.size(); i++) {
+                JSONObject json = new JSONObject();
+                for (int j = 0; j < params.size(); j++) {
+                    Method m = c.getDeclaredMethod("get" + formatTarget(params.get(j)));
+                    Object obj = objectList.get(i);
+                    Object resp = m.invoke(obj);
+                    json.put(params.get(j), resp);
+                }
+                objects.add(json.toJSONString());
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
+            }
 
-    } catch (IOException e) {
-      System.out.println("File doesn't exist");
+            // Write the entire string to the file.
+            fileWriter.write(objects.toString());
+
+            // Finish writing.
+            fileWriter.flush();
+            fileWriter.close();
+
+        } catch (Exception e) {
+            System.out.print("Record file problem: " + e);
+        }
     }
 
+<<<<<<< HEAD
   }
 <<<<<<< HEAD
 
@@ -218,4 +219,11 @@ public class JsonWrite {
   }
 =======
 >>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
+=======
+    // Methods to up the first letter for reflexion.
+    private String formatTarget(String rawTarget) {
+        String target = rawTarget.substring(0,1).toUpperCase() + rawTarget.substring(1);
+        return target;
+    }
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 }

@@ -6,15 +6,14 @@ public class Brewer {
   private String name;
   private String address;
   private ArrayList<Brand> brandsList;
-  private String number;
 
-  public Brewer(String name, String address, String number) {
+  public Brewer(String name, String address) {
     this.name = name;
     this.address = address;
-    this.number = number;
     this.brandsList = new ArrayList<>();
   }
 
+  // Getters and setters
   public String getName() {
     return name;
   }
@@ -23,16 +22,12 @@ public class Brewer {
     return address;
   }
 
-  public void setAddress(String address){
-    this.address = address;
-  }
-
-  public String getNumber() {
-    return number;
-  }
-
-  public void setNumber(String number){
-    this.number = number;
+  public ArrayList<String> getBrandsList() {
+    ArrayList<String> names = new ArrayList<String>();
+    for (int i = 0; i < brandsList.size(); i++) {
+      names.add(brandsList.get(i).getName());
+    }
+    return names;
   }
 
 <<<<<<< HEAD
@@ -43,10 +38,12 @@ public class Brewer {
     return brandsList;
   }
 
+  // Function to remove a brand into the brandList of a brewer.
   public void addBrand(Brand brand){
     this.brandsList.add(brand);
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   public void RemoveBrand(BrandBeer brand) {this.brandsList.remove(brand);}
 
@@ -97,4 +94,9 @@ public class Brewer {
   }
 
 
+=======
+  // Function to remove a brand into the brandList of a brewer.
+  public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
+
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 }
