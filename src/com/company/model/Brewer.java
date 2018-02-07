@@ -6,15 +6,14 @@ public class Brewer {
   private String name;
   private String address;
   private ArrayList<Brand> brandsList;
-  private String number;
 
-  public Brewer(String name, String address, String number) {
+  public Brewer(String name, String address) {
     this.name = name;
     this.address = address;
-    this.number = number;
     this.brandsList = new ArrayList<>();
   }
 
+  // Getters and setters
   public String getName() {
     return name;
   }
@@ -23,49 +22,24 @@ public class Brewer {
     return address;
   }
 
-  public void setAddress(String address){
-    this.address = address;
-  }
-
-  public String getNumber() {
-    return number;
-  }
-
-  public void setNumber(String number){
-    this.number = number;
+  public ArrayList<String> getBrandsList() {
+    ArrayList<String> names = new ArrayList<String>();
+    for (int i = 0; i < brandsList.size(); i++) {
+      names.add(brandsList.get(i).getName());
+    }
+    return names;
   }
 
   public ArrayList<Brand> getBrandList() {
     return brandsList;
   }
 
+  // Function to remove a brand into the brandList of a brewer.
   public void addBrand(Brand brand){
     this.brandsList.add(brand);
   }
 
+  // Function to remove a brand into the brandList of a brewer.
   public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
-
-
-  @Override
-  public String toString(){
-    String toString = "{";
-    toString += "\"name\": \""+this.name;
-    toString += "\", \"address\": \""+this.address;
-    toString += "\", \"number\": \""+this.number;
-    toString += "\", \"brandsList\": [";
-    ArrayList<Brand> brandBeers = this.brandsList;
-    for (Brand brandBeer:brandBeers){
-      // First possibility: add brandBeer to string (so with all data)
-      // toString += brandBeer.toString();
-      // Other possibility: just add brandBeer name
-      toString = toString.concat("\""+brandBeer.getName()+"\"");
-      if (brandBeer != brandBeers.get(brandBeers.size()-1)){
-        toString += ",";
-      }
-    }
-    toString += "]}";
-    return toString;
-  }
-
 
 }
