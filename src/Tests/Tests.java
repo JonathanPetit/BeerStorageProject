@@ -20,24 +20,21 @@ public class Tests
         Assert.assertEquals(6,beer.getDegree(),0.001);
         Assert.assertEquals(50,beer.getConditioning(),0.001);
         Assert.assertEquals(2.5,beer.getPrice(),0.001);
-        Assert.assertEquals(3.5,beer.getPrice(),0.001);
 
         Assert.assertEquals(5,beer.getEvaluation(),0.001);
-        Assert.assertEquals(3.0,beer.getEvaluation(),0.001);
-        Assert.assertEquals("Should be good","                 Jup                " +
-                "Pils                 6.0                50.0                 3.5                 " +
-                "3.0",beer.toString());
+        Assert.assertEquals("Should be a long string",String.format("%20s%20s%20s%20s%20s%20s",
+                beer.getName(), beer.getType(), beer.getDegree(), beer.getConditioning(),
+                beer.getPrice(), beer.getEvaluation()), beer.toString());
     }
     @Test
     public void BrewerTest(){
         Brewer brewer = new Brewer("InBev","There");
-        Assert.assertEquals("Should be InBev","InBev",brewer.getName());
-        Assert.assertEquals("Should be There","There",brewer.getAddress());
-        Assert.assertEquals("Should be NotThere","NotThere",brewer.getAddress());
+        Assert.assertEquals("Should be InBev","InBev", brewer.getName());
+        Assert.assertEquals("Should be There","There", brewer.getAddress());
+
         Assert.assertEquals("Should be 0",0,brewer.getBrandList().size());
-        Assert.assertEquals("Should be a long string","               " +
-                "InBev            NotThere                   0" +
-                "                    ",brewer.toString());
+        Assert.assertEquals("Should be a long string",String.format("%20s%20s%20s",
+                brewer.getName(), brewer.getAddress(), ""), brewer.toString());
         Brand brand = new Brand("Pechmel","Here");
         brewer.addBrand(brand);
         Assert.assertEquals("Should be 1",1,brewer.getBrandList().size());
@@ -50,9 +47,8 @@ public class Tests
         Brand brand = new Brand("Pechmel","Here");
         Assert.assertEquals("Should be PechMel","Pechmel",brand.getName());
         Assert.assertEquals("Should be Here","Here",brand.getAddress());
-        Assert.assertEquals("Should be NotHere","NotHere",brand.getAddress());
-        Assert.assertEquals("should be ","             Pechmel             NotHere  " +
-                "                 0                    ",brand.toString());
+        Assert.assertEquals("Should be a long string",String.format("%20s%20s%20s",
+                brand.getName(), brand.getAddress(), ""), brand.toString());
         Beer beer= new Beer("Jup","Pils",6,50,2.5,5);
         Assert.assertEquals("Should be 0",0,brand.getBeersList().size());
         brand.addBeer(beer);
@@ -92,9 +88,9 @@ public class Tests
         Controller controller= Controller.getInstance();
         try {
             Controller controller2 = Controller.getInstance();
-            Assert.fail();
-        } catch (Exception e) {
 
+        } catch (Exception e) {
+            Assert.fail();
         }
         ArrayList<String> params = new ArrayList<>();
         params.add("-b");

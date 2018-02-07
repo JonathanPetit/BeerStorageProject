@@ -19,8 +19,10 @@ public class Controller {
     private JsonWrite jsonW = new JsonWrite();
     View view = View.getInstance();
 
+    // Method to get the unique instance of Controller.
+    private static Controller instance;
 
-    private Controller(){
+    private Controller() {
         this.commandsList = new Hashtable<String, ArrayList<String>>();
     }
 
@@ -29,13 +31,11 @@ public class Controller {
     }
 
     // Create and set unique instance of Controller class. (Singleton pattern)
-    private static class ControllerHolder {
-        private static final Controller INSTANCE = new Controller();
-    }
-
-    // Method to get the unique instance of Controller.
     public static Controller getInstance() {
-        return Controller.ControllerHolder.INSTANCE;
+        if (null == instance) { // Premier appel
+            instance = new Controller();
+        }
+        return instance;
     }
 
     // Add commands to class.
