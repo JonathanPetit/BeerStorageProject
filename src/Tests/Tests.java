@@ -81,9 +81,9 @@ public class Tests
         brewers.add(brewer2);
         wjson.writeFile("Brewer", brewers2, controller.getParamsBrewer());
         Assert.assertEquals("should be 2",size+1, out.size());
-        List<Object> brands = json.getByArg("BrandBeer","address","BrandAddress");
-        Assert.assertEquals("should be 1",1,brands.size());
-        Object brandstest = json.getByName("BrandBeer","OtherBrandBeer");
+        List<Object> brands = json.getByArg("Brand","address","BrandAddress");
+        Assert.assertEquals("should be 1",1, brands.size());
+        Object brandstest = json.getByName("Brand","OtherBrandBeer");
         Assert.assertEquals("should be 1",1,brands.size());
 
     }
