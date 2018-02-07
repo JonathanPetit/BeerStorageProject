@@ -19,56 +19,11 @@ public class View {
         private static final View INSTANCE = new View();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  //Display inventory with a A to Z sorting methode
-  public void atoz() {
-    String entete = null;
-    String text = "";
-    for (Object item:listing){
-      String objectType = item.getClass().toString();
-      if (objectType.contains("Brand")) {
-        if (entete == null) {
-          entete = String.format("%20s%20s%20s%20s","Name","Address","Number","BeersList");
-        }
-        Brand brandBeer = (Brand) item;
-        text = text.concat(brandBeer.beautifulString()+"\n");
-      }
-      else if (objectType.contains("Beer")){
-        if (entete == null){
-          entete = String.format("%20s%20s%20s%20s%20s%20s","Name","type","Degree","Conditioning",
-                  "Price", "Evaluation");
-          //String name, String type, double degree, double conditioning, double price,
-          //                   double evaluation
-        }
-        Beer beer = (Beer) item;
-        text = text.concat(beer.beautifulString()+"\n");
-      }
-      else if (objectType.contains("Brewer")){
-        if (entete == null){
-          entete = String.format("%20s%20s%20s%20s","Name","Address","Number","BrandsList");
-        }
-        Brewer brewer = (Brewer) item;
-        text = text.concat(brewer.beautifulString()+"\n");
-      }
-      else {
-        System.out.println("none");
-      }
-    }
-    System.out.println(entete);
-    System.out.println(text);
-  }
-=======
-=======
->>>>>>> 00376ca6c525428ab3be4458162e138ff58671b9
+
     // Method to get the unique instance of Parking.
     public static View getInstance() {
         return ViewHolder.INSTANCE;
     }
-<<<<<<< HEAD
->>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
-=======
->>>>>>> 00376ca6c525428ab3be4458162e138ff58671b9
 
     public void setCommands(Hashtable<String, ArrayList<String>> commands) {
         this.commands = commands;
