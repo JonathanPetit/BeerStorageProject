@@ -41,4 +41,23 @@ public class Brand {
 
   // Function to remove a beer into the beerList of a brand.
   public void removeBeer(Beer beer) {this.beersList.remove(beer);}
+
+  @Override
+  public String toString(){
+    ArrayList<Beer> beers = this.beersList;
+    String brandsString = "";
+    for (Beer beer:beers) {
+      // First possibility: add beer to string (with all data)
+      //toString += beer.toString();
+      //Other possibility: just add beer name
+      brandsString = brandsString.concat(beer.getName());
+      if (beer != beers.get(beers.size() - 1)) {
+        brandsString += ", ";
+      }
+    }
+    return String.format("%20s%20s%20s",
+            this.name, this.address,brandsString);
+  }
 }
+
+

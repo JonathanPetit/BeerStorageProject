@@ -26,12 +26,11 @@ public class BeerTests
     }
     @Test
     public void BrewerTest(){
-        Brewer brewer = new Brewer("InBev","There","69");
+        Brewer brewer = new Brewer("InBev","There");
         Assert.assertEquals("Should be InBev","InBev",brewer.getName());
         Assert.assertEquals("Should be There","There",brewer.getAddress());
-        Assert.assertEquals("Should be 69","69",brewer.getNumber());
         Assert.assertEquals("Should be 0",0,brewer.getBrandList().size());
-        Brand brand = new Brand("Pechmel","Here","30");
+        Brand brand = new Brand("Pechmel","Here");
         brewer.addBrand(brand);
         Assert.assertEquals("Should be 1",1,brewer.getBrandList().size());
         brewer.RemoveBrand(brand);
@@ -40,33 +39,15 @@ public class BeerTests
     }
     @Test
     public void BrandTest(){
-        Brand brand = new Brand("Pechmel","Here","69");
+        Brand brand = new Brand("Pechmel","Here");
         Assert.assertEquals("Should be PechMel","Pechmel",brand.getName());
         Assert.assertEquals("Should be Here","Here",brand.getAddress());
-        Assert.assertEquals("Should be 69","69",brand.getNumber());
         Beer beer= new Beer("Jup","Pils",6,50,2.5,5);
         Assert.assertEquals("Should be 0",0,brand.getBeersList().size());
         brand.addBeer(beer);
         Assert.assertEquals("Should be 1",1,brand.getBeersList().size());
         brand.removeBeer(beer);
         Assert.assertEquals("Should be 0",0,brand.getBeersList().size());
-
-
-    }
-    @Test
-    public void JsonTest(){
-        JsonRead json =new JsonRead();
-        List<Object> out=json.readFile("Brewer");
-        int size = out.size();
-        Assert.assertEquals("should be 1",size, out.size());
-        JsonWrite wjson = new JsonWrite();
-        Brewer brewer= new Brewer("Bush","LLN","1");
-        wjson.writeFile("Brewer",brewer,false);
-        out=json.readFile("Brewer");
-        Assert.assertEquals("should be 2",size+1, out.size());
-        Brewer brewer2 = new Brewer("Bush","LLN", "3");
-        wjson.writeFile("Brewer",brewer2,true);
-        Assert.assertEquals("should be 2",size+1, out.size());
 
 
     }

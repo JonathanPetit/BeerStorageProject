@@ -12,3 +12,7 @@ IgnoreLexer.java~
 .gradle
 
 *.DS_Store
+/Brewer.json
+/Brand.json
+/BrandBeer.json
+/Beer.json

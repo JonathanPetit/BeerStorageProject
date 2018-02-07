@@ -43,6 +43,7 @@ public class View {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   //Display inventory with a A to Z sorting methode
   public void atoz() {
     String entete = null;
@@ -82,11 +83,17 @@ public class View {
     System.out.println(text);
   }
 =======
+=======
+
+>>>>>>> a47aa3b60271dacf72c4cbebe1e2e79fb3d184e3
     // Method to get the unique instance of Parking.
     public static View getInstance() {
         return ViewHolder.INSTANCE;
     }
+<<<<<<< HEAD
 >>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
+=======
+>>>>>>> a47aa3b60271dacf72c4cbebe1e2e79fb3d184e3
 
     public void setCommands(Hashtable<String, ArrayList<String>> commands) {
         this.commands = commands;

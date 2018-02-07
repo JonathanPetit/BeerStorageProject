@@ -51,6 +51,7 @@ public class Brewer {
 =======
   public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
 
+<<<<<<< HEAD
   public String beautifulString() {
     ArrayList<Brand> brands = this.brandsList;
     String brandsString = "";
@@ -87,11 +88,25 @@ public class Brewer {
       toString = toString.concat("\""+brandBeer.getName()+"\"");
       if (brandBeer != brandBeers.get(brandBeers.size()-1)){
         toString += ",";
+=======
+  @Override
+  public String toString(){
+      ArrayList<Brand> brands = this.brandsList;
+      String brandsString = "";
+      for (Brand brand:brands) {
+          // First possibility: add beer to string (with all data)
+          //toString += beer.toString();
+          //Other possibility: just add beer name
+          brandsString = brandsString.concat(brand.getName());
+          if (brand != brands.get(brands.size() - 1)) {
+              brandsString += ", ";
+          }
+>>>>>>> a47aa3b60271dacf72c4cbebe1e2e79fb3d184e3
       }
-    }
-    toString += "]}";
-    return toString;
+      return String.format("%20s%20s%20s",
+              this.name, this.address,brandsString);
   }
+<<<<<<< HEAD
 
 
 =======
@@ -99,4 +114,6 @@ public class Brewer {
   public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
 
 >>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
+=======
+>>>>>>> a47aa3b60271dacf72c4cbebe1e2e79fb3d184e3
 }
