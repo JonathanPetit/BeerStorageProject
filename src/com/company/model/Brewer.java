@@ -41,38 +41,21 @@ public class Brewer {
 
   // Function to remove a brand into the brandList of a brewer.
   public void RemoveBrand(Brand brand) {this.brandsList.remove(brand);}
-  public String beautifulString() {
-    ArrayList<Brand> brands = this.brandsList;
-    String brandsString = "";
-    for (Brand brand:brands) {
-      // First possibility: add beer to string (with all data)
-      //toString += beer.toString();
-      //Other possibility: just add beer name
-      brandsString = brandsString.concat(brand.getName());
-      if (brand != brands.get(brands.size() - 1)) {
-        brandsString += ", ";
-      }
-    }
-    return String.format("%20s%20s%20s",
-            this.name, this.address,brandsString);
-  }
+
   @Override
   public String toString(){
-    String toString = "{";
-    toString += "\"name\": \""+this.name;
-    toString += "\", \"address\": \""+this.address;
-    toString += "\", \"brandsList\": [";
-    ArrayList<Brand> brandBeers = this.brandsList;
-    for (Brand brandBeer:brandBeers){
-      // First possibility: add brandBeer to string (so with all data)
-      // toString += brandBeer.toString();
-      // Other possibility: just add brandBeer name
-      toString = toString.concat("\""+brandBeer.getName()+"\"");
-      if (brandBeer != brandBeers.get(brandBeers.size()-1)){
-        toString += ",";
+      ArrayList<Brand> brands = this.brandsList;
+      String brandsString = "";
+      for (Brand brand:brands) {
+          // First possibility: add beer to string (with all data)
+          //toString += beer.toString();
+          //Other possibility: just add beer name
+          brandsString = brandsString.concat(brand.getName());
+          if (brand != brands.get(brands.size() - 1)) {
+              brandsString += ", ";
+          }
       }
-    }
-    toString += "]}";
-    return toString;
+      return String.format("%20s%20s%20s",
+              this.name, this.address,brandsString);
   }
 }
