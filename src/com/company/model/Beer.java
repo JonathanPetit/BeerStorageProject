@@ -82,6 +82,13 @@ public class Beer {
     this.evaluation = evaluation;
   }
 
+<<<<<<< HEAD
+=======
+  public String beautifulString(){
+    return String.format("%20s%20s%20s%20s%20s%20s",
+            this.name, this.type, this.degree,this.conditioning,this.price, this.evaluation);
+  }
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
   /**
    * Override the "toString" method of an Object
    * @return a String with the Object with Json structure

@@ -1,7 +1,11 @@
 package com.company.Json;
 
 import com.company.model.Beer;
+<<<<<<< HEAD
 import com.company.model.BrandBeer;
+=======
+import com.company.model.Brand;
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 import com.company.model.Brewer;
 
 import java.io.FileWriter;
@@ -13,6 +17,10 @@ public class JsonWrite {
    * Writes an object to a file
    * @param name: Type of the Object, "Beer", "BrandBeer" or "Brewer"
    * @param object: Object that needs to be added to the file name".json"
+<<<<<<< HEAD
+=======
+   * @param update: tells if the object already existed (true) or if it is new (false)
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
    */
   public void writeFile(String name, Object object, Boolean update) {
     JsonRead jsonRead = new JsonRead();
@@ -50,14 +58,22 @@ public class JsonWrite {
           break;
         case "BrandBeer":
           // 1)
+<<<<<<< HEAD
           BrandBeer brandBeerObject = (BrandBeer) object;
+=======
+          Brand brandBeerObject = (Brand) object;
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
           // 2)
           objects.add(brandBeerObject);
           // 3)
           i = 0;
           while (i < objects.size()) {
             Object brandBeer = objects.get(i);
+<<<<<<< HEAD
             if (brandBeerObject.getName().equals(((BrandBeer) brandBeer).getName()) && update){
+=======
+            if (brandBeerObject.getName().equals(((Brand) brandBeer).getName()) && update){
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
               update = false;
             }
             else {
@@ -107,6 +123,7 @@ public class JsonWrite {
     }
 
   }
+<<<<<<< HEAD
 
   /**
    * Updates a file based on some criteria
@@ -199,4 +216,6 @@ public class JsonWrite {
     }
 
   }
+=======
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 }

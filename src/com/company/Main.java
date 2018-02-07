@@ -1,7 +1,11 @@
 package com.company;
+<<<<<<< HEAD
 import com.company.Json.JsonRead;
 import com.company.Json.JsonWrite;
 import com.company.views.*;
+=======
+//import com.company.views.*;
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 import com.company.model.*;
 import com.company.controller.*;
 
@@ -13,6 +17,7 @@ import java.util.stream.Collectors;
 public class Main {
   public static void main(String[] args) {
 
+<<<<<<< HEAD
     Brewer testBrewer = new Brewer("BrewerName","BrewerAddress", "0");
     BrandBeer brandBeer = new BrandBeer("OtherBrandBeer","BrandAddress","15");
     Beer beer = new Beer("OtherBeer", "BullShit", 0.2, 15.0,0.3, 0);
@@ -94,6 +99,30 @@ public class Main {
 
 
     /*
+=======
+        Controller controller = new Controller();
+
+        ArrayList options = new ArrayList();
+        options.add("beer");
+        options.add("brand");
+        options.add("brewer");
+
+        controller.addCommands("exit", new ArrayList<>());
+        controller.addCommands("help", new ArrayList<>());
+        controller.addCommands("add", options);
+        controller.addCommands("edit", options);
+        controller.addCommands("remove", options);
+
+        options.add("all");
+        controller.addCommands("info", options);
+
+        controller.run();
+    }
+
+
+
+/*
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
     public static List<Brewer>GetData(){
         Brewer Artois = new Brewer("Artois");
         BrandBeer Leffe = new BrandBeer("Leffe");
@@ -126,7 +155,11 @@ public class Main {
 
         return list;
 
+<<<<<<< HEAD
     }
     */
+=======
+    }*/
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 }
 

@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.company.model.Beer;
+<<<<<<< HEAD
 import com.company.model.BrandBeer;
+=======
+import com.company.model.Brand;
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 import com.company.model.Brewer;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -39,7 +43,11 @@ public class JsonRead {
 
     Beer beer;
     Brewer brewer;
+<<<<<<< HEAD
     BrandBeer brandBeer;
+=======
+    Brand brandBeer;
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
 
 
     JSONParser parser = new JSONParser();
@@ -80,7 +88,11 @@ public class JsonRead {
               // Create Object
               brewer = new Brewer(name,address,number);
               for (Object brandBeerName:brandsList) {
+<<<<<<< HEAD
                 brandBeer = (BrandBeer) getByName("BrandBeer",(String) brandBeerName);
+=======
+                brandBeer = (Brand) getByName("BrandBeer",(String) brandBeerName);
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
                 brewer.addBrand(brandBeer);
               }
               // Add to list
@@ -94,7 +106,11 @@ public class JsonRead {
               JSONArray jsonArray1 = (JSONArray) jsonObject.get("beersList");
               beersList = (List<Object>) jsonArray1;
               // Create Object
+<<<<<<< HEAD
               brandBeer = new BrandBeer(name,address,number);
+=======
+              brandBeer = new Brand(name,address,number);
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
               for (Object beerName:beersList){
                 beer = (Beer) getByName("Beer",(String) beerName);
                 brandBeer.addBeer(beer);
@@ -108,7 +124,11 @@ public class JsonRead {
         }
       }
       catch(Exception e){
+<<<<<<< HEAD
         System.out.println(e.toString());
+=======
+        System.out.println("lol");
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
       }
       fileReader.close();
     }
@@ -127,6 +147,7 @@ public class JsonRead {
    */
 
   public Object getByName(String fileType, String name){
+<<<<<<< HEAD
     JsonRead jsonRead = new JsonRead();
     List<Object> objects = jsonRead.readFile(fileType);
     Object returnObject = null;
@@ -177,6 +198,15 @@ public class JsonRead {
         //
     }
     return returnObject;
+=======
+    List<Object> objects = getByArg(fileType, "name",name);
+    if (objects.size()==1){
+      return objects.get(0);
+    }
+    else {
+      return new Object();
+    }
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
   }
 
   /**
@@ -229,8 +259,13 @@ public class JsonRead {
             objectList.add(brewer);
           }
           else if (arg.equals("brandsList")){
+<<<<<<< HEAD
             List<BrandBeer> brandsList = brewer.getBrandList();
             for (BrandBeer brandBeer:brandsList){
+=======
+            List<Brand> brandsList = brewer.getBrandList();
+            for (Brand brandBeer:brandsList){
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
               if (brandBeer.getName().equals(value)){
                 objectList.add(brewer);
                 break;
@@ -243,7 +278,11 @@ public class JsonRead {
           }
           break;
         case "BrandBeer":
+<<<<<<< HEAD
           BrandBeer brandBeer = (BrandBeer) object;
+=======
+          Brand brandBeer = (Brand) object;
+>>>>>>> 3c4e5e47ba5be159e6083da673b42e00df123250
           System.out.println(brandBeer);
           if (arg.equals("name") && brandBeer.getName().equals(value)){
             objectList.add(brandBeer);

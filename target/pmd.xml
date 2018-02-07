@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.6.1" timestamp="2017-12-15T16:46:02.429">
+<file name="/var/lib/jenkins/workspace/Equip5_LeagueManagment/src/main/java/manageleague/Display.java">
+<violation beginline="2" endline="2" begincolumn="1" endcolumn="32" rule="UnusedImports" ruleset="Import Statements" package="manageleague" class="Display" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.text.ParseException'
+</violation>
+<violation beginline="3" endline="3" begincolumn="1" endcolumn="34" rule="UnusedImports" ruleset="Import Statements" package="manageleague" class="Display" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.text.SimpleDateFormat'
+</violation>
+<violation beginline="14" endline="14" begincolumn="16" endcolumn="20" rule="UnusedLocalVariable" ruleset="Unused Code" package="manageleague" class="Display" method="Display" variable="entry" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'entry'.
+</violation>
+<violation beginline="29" endline="29" begincolumn="13" endcolumn="21" rule="UnusedLocalVariable" ruleset="Unused Code" package="manageleague" class="Display" method="Display" variable="test_pair" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'test_pair'.
+</violation>
+<violation beginline="29" endline="29" begincolumn="26" endcolumn="35" rule="UselessParentheses" ruleset="Unnecessary" package="manageleague" class="Display" method="Display" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="32" endline="32" begincolumn="17" endcolumn="27" rule="UselessParentheses" ruleset="Unnecessary" package="manageleague" class="Display" method="Display" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="32" endline="32" begincolumn="34" endcolumn="44" rule="UselessParentheses" ruleset="Unnecessary" package="manageleague" class="Display" method="Display" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="32" endline="32" begincolumn="51" endcolumn="61" rule="UselessParentheses" ruleset="Unnecessary" package="manageleague" class="Display" method="Display" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="57" endline="57" begincolumn="16" endcolumn="25" rule="UnusedLocalVariable" ruleset="Unused Code" package="manageleague" class="Display" method="Display" variable="start_date" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'start_date'.
+</violation>
+<violation beginline="60" endline="60" begincolumn="16" endcolumn="23" rule="UnusedLocalVariable" ruleset="Unused Code" package="manageleague" class="Display" method="Display" variable="end_date" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'end_date'.
+</violation>
+</file>
+<file name="/var/lib/jenkins/workspace/Equip5_LeagueManagment/src/main/java/manageleague/DisplayScore.java">
+<violation beginline="4" endline="4" begincolumn="1" endcolumn="26" rule="ImportFromSamePackage" ruleset="Import Statements" package="manageleague" class="DisplayScore" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
+No need to import a type that lives in the same package
+</violation>
+</file>
+<file name="/var/lib/jenkins/workspace/Equip5_LeagueManagment/src/main/java/manageleague/League.java">
+<violation beginline="3" endline="3" begincolumn="1" endcolumn="38" rule="UnusedImports" ruleset="Import Statements" package="manageleague" class="League" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'sun.util.calendar.BaseCalendar'
+</violation>
+<violation beginline="5" endline="5" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Import Statements" package="manageleague" class="League" externalInfoUrl="https://pmd.github.io/pmd-5.6.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.text.DateFormat'
+</violation>
+</file>
+</pmd>

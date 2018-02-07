@@ -6,5 +6,18 @@
     "beersList": [
       "OtherBeer"
     ]
+
+  },
+  {
+    "name": "NewBrandBeer",
+    "address": "Address",
+    "number": "10",
+    "beersList": []
+  },
+  {
+    "name": "ThirdBrand",
+    "address": "AddressOfBrand",
+    "number": "4",
+    "beersList": []
   }
 ]
