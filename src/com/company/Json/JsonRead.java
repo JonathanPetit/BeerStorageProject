@@ -109,7 +109,7 @@ public class JsonRead {
         }
       }
       catch(Exception e){
-        System.out.println(e.toString());
+        System.out.println("lol");
       }
       fileReader.close();
     }
