@@ -1,23 +1,25 @@
 package com.company.views;
-import com.company.model.*;
 
-
-import java.util.Collections;
-import java.util.List;
-
+import java.util.*;
 
 public class View {
-  private List<Object> listing;
-  private List<Object> GetListing(){return listing;}
+    /*
+     * Class for view console.
+     */
 
+    private Hashtable<String, ArrayList<String>> commands;
 
-  public View(List<Object> list_from_db){
-    //Begin with a A to Z sorting
+    // Function for display menu and control.
+    private View() {
+        this.commands = commands;
+    }
 
-    //  Collections.sort(list_from_db);
-    this.listing = list_from_db;
-  }
+    // Create and set unique instance of Parking class. (Singleton pattern)
+    private static class ViewHolder {
+        private static final View INSTANCE = new View();
+    }
 
+<<<<<<< HEAD
   //Display inventory with a A to Z sorting methode
   public void atoz() {
     String entete = null;
@@ -55,52 +57,52 @@ public class View {
     System.out.println(entete);
     System.out.println(text);
   }
-
-  //Display inventory with a Z to A sorting methode
-  public void ztoa() {
-    List<Object>list = GetListing();
-    Collections.reverse(list);
-    //  list.forEach(item->display_Brewer(item));
-  }
-
-
-  //Check if we find a query in inventory and display the Brewer where he find it.
-  /*
-  public void search(String query)
-  {
-    for(Brewer b : this.GetListing()) {
-      if (b.GetName() != null && b.GetName().contains(query)) {
-         display_Brewer(b);
-      }
-      else {
-        for(BrandBeer beer : b.GetBrandList()) {
-          if (beer.GetName() != null && beer.GetName().contains(query)) {
-            display_Brewer(b);
-          }
-          else{
-            for (ModelBeer model : beer.GetModelList()){
-              if (model.GetModel() != null &&model.GetModel().contains(query)) {
-                  display_Brewer(b);
-                }
-          }
-        }
-      }
+=======
+    // Method to get the unique instance of Parking.
+    public static View getInstance() {
+        return ViewHolder.INSTANCE;
     }
-  }
+>>>>>>> 404ff1be70dbcc0279071ef4f017b73e2b69c41c
 
+    public void setCommands(Hashtable<String, ArrayList<String>> commands) {
+        this.commands = commands;
+    }
 
-  //Display method
-  private void display_Brewer(Brewer b){
-      System.out.println("");
-      System.out.println("Brewer :  "+b.GetName());
-      for(BrandBeer Beer : b.GetBrandList()) {
-          System.out.println("  Brand : "+Beer.GetName()+":");
-          for(ModelBeer Model : Beer.GetModelList()){
-              System.out.println("   -> "+Model.GetModel());
-          }
-      }
-      System.out.println("");
-      System.out.println("---------------------------------------------");
-  }
-  */
+    // Display main menu.
+    public void display() {
+        System.out.print("\n\n----- Main Menu -----\n\n");
+
+        // Recover commands available by reflexion.
+        System.out.print("Available commands:\n");
+        Enumeration e = this.commands.keys();
+        while (e.hasMoreElements()) {
+            String key = (String) e.nextElement();
+            System.out.println("- " + key);
+        }
+        System.out.print("\n");
+
+        System.out.print("Target:\n");
+        System.out.print("- brewer\n");
+        System.out.print("- brand\n");
+        System.out.print("- beer\n");
+        System.out.print("\n");
+
+        System.out.print("\nExample commands: <command> <target> <option> (for 'all' info option is " +
+                "blank" + " \n");
+    }
+
+    // Function to display add view.
+    public ArrayList<String> addView(ArrayList<String> params) {
+        ArrayList<String> values = new ArrayList<String>();
+        Scanner scanner = new Scanner(System.in);
+
+        // Display params one by one
+        for (int i = 0; i < params.size(); i++) {
+            System.out.println("\n" + params.get(i));
+            String value = scanner.nextLine();
+            values.add(value);
+        }
+
+        return values;
+    }
 }

@@ -13,14 +13,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
 public class JsonRead {
-  /**
+  /*
    * Get all the objects from a json file
    * @param fileType: "Beer", "Brewer" or "BrandBeer", type of the Objects returned in the List
    * @return : List of Objects from the file fileType".json"
    */
 
-  public List<Object> readFile(String fileType){
-    List<Object> jsonRead = new ArrayList<>();
+  public ArrayList<Object> readFile(String fileType){
+    ArrayList<Object> jsonRead = new ArrayList<>();
     String fileName = fileType+".json";
 
     //Initiating all variables for Beer, Brewer and BrandBeer
@@ -52,6 +52,7 @@ public class JsonRead {
 
         for (Object object:jsonArray){
           JSONObject jsonObject = (JSONObject) object;
+
           switch(fileType){
             /* for each case: get attributes from json file
             *  then: create new object with these attributes
@@ -61,12 +62,12 @@ public class JsonRead {
               // Get Attributes
               name = (String) jsonObject.get("name");
               type = (String) jsonObject.get("type");
-              degree = Double.parseDouble((String) jsonObject.get("degree"));
-              conditioning = Double.parseDouble((String)jsonObject.get("conditioning"));
-              price = Double.parseDouble((String) jsonObject.get("price"));
-              evaluation = Double.parseDouble((String) jsonObject.get("evaluation"));
+              degree = (double) jsonObject.get("degree");
+              conditioning = (double) jsonObject.get("conditioning");
+              price = (double) jsonObject.get("price");
+              evaluation = (double) jsonObject.get("evaluation");
               // Create Object
-              beer = new Beer(name,type,degree,conditioning,price,evaluation);
+              beer = new Beer(name, type, degree, conditioning, price, evaluation);
               // Add to list
               jsonRead.add(beer);
               break;
@@ -74,27 +75,27 @@ public class JsonRead {
               // Get Attributes
               name = (String) jsonObject.get("name");
               address = (String) jsonObject.get("address");
-              number = (String) jsonObject.get("number");
               JSONArray jsonObject1 = (JSONArray) jsonObject.get("brandsList");
               brandsList = (List<Object>) jsonObject1;
               // Create Object
-              brewer = new Brewer(name,address,number);
+              brewer = new Brewer(name, address);
+
               for (Object brandBeerName:brandsList) {
-                brandBeer = (Brand) getByName("BrandBeer",(String) brandBeerName);
+                brandBeer = (Brand) getByName("Brand",(String) brandBeerName);
                 brewer.addBrand(brandBeer);
               }
               // Add to list
               jsonRead.add(brewer);
               break;
-            case "BrandBeer":
+            case "Brand":
               // Get Attributes
               name = (String) jsonObject.get("name");
               address = (String) jsonObject.get("address");
-              number = (String) jsonObject.get("number");
+
               JSONArray jsonArray1 = (JSONArray) jsonObject.get("beersList");
               beersList = (List<Object>) jsonArray1;
               // Create Object
-              brandBeer = new Brand(name,address,number);
+              brandBeer = new Brand(name, address);
               for (Object beerName:beersList){
                 beer = (Beer) getByName("Beer",(String) beerName);
                 brandBeer.addBeer(beer);
@@ -121,7 +122,7 @@ public class JsonRead {
 
   /**
    * Get an Object by type and name
-   * @param fileType: "Beer", "Brewer" or "BrandBeer", json file where we need to search
+   * @param fileType: "Beer", "Brewer" or "Brand", json file where we need to search
    * @param name: name of the Object we're looking for
    * @return returns an Object with the correct attributes OR an Object with null/0.0/0 everywhere
    */
@@ -138,7 +139,7 @@ public class JsonRead {
 
   /**
    * Get an Object by type, argument en value
-   * @param fileType: "Beer", "Brewer" or "BrandBeer", json file where we need to search
+   * @param fileType: "Beer", "Brewer" or "Brand", json file where we need to search
    * @param arg: name of the argument we want to scan
    * @param value: value of the argument we are searching for
    * @return returns a List of Objects with the correct attribute
@@ -170,9 +171,6 @@ public class JsonRead {
           else if (arg.equals("evaluation") && beer.getEvaluation() == Double.parseDouble(value)){
             objectList.add(beer);
           }
-          else {
-            System.out.println("Error");
-          }
           break;
         case "Brewer":
           Brewer brewer = (Brewer) object;
@@ -180,9 +178,6 @@ public class JsonRead {
             objectList.add(brewer);
           }
           else if (arg.equals("address") && brewer.getAddress().equals(value)){
-            objectList.add(brewer);
-          }
-          else if (arg.equals("number") && brewer.getNumber().equals(value)){
             objectList.add(brewer);
           }
           else if (arg.equals("brandsList")){
@@ -195,25 +190,18 @@ public class JsonRead {
             }
             break;
           }
-          else {
-            System.out.println("Error");
-          }
           break;
-        case "BrandBeer":
+        case "Brand":
           Brand brandBeer = (Brand) object;
-          System.out.println(brandBeer);
+
           if (arg.equals("name") && brandBeer.getName().equals(value)){
             objectList.add(brandBeer);
           }
           else if (arg.equals("address") && brandBeer.getAddress().equals(value)){
             objectList.add(brandBeer);
           }
-          else if (arg.equals("number") && brandBeer.getNumber().equals(value)){
-            objectList.add(brandBeer);
-          }
           else if (arg.equals("beersList")){
-            List<Beer> beerList = brandBeer.getBeersList();
-            System.out.println(beerList);
+            List<Beer> beerList = brandBeer.getBeersListObject();
             for (Beer beer1:beerList){
               if (beer1.getName().equals(value)){
                 objectList.add(brandBeer);
@@ -221,9 +209,6 @@ public class JsonRead {
               }
             }
             break;
-          }
-          else {
-            System.out.println("Error");
           }
           break;
         default:
