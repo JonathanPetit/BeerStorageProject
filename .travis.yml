@@ -1,0 +1,8 @@
+  language: java
+
+  /*
+  the .coveralls.yml was not created to protect info
+
+  the token is placed in the travis parameters to mask it from the public repo GitHub
+
+  */
