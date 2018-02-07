@@ -1,3 +1,5 @@
+import com.company.Json.JsonRead;
+import com.company.Json.JsonWrite;
 import org.junit.Assert;
 import org.junit.Test;
 import com.company.model.Brewer;
@@ -5,6 +7,8 @@ import com.company.model.BrandBeer;
 import com.company.model.Beer;
 import com.company.model.Brewer;
 import com.company.model.BrandBeer;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 
@@ -46,6 +50,21 @@ public class BeerProjTests
         Assert.assertEquals("Should be 1",1,brand.getBeersList().size());
         brand.removeBeer(beer);
         Assert.assertEquals("Should be 0",0,brand.getBeersList().size());
+
+
+    }
+    @Test
+    public void JsonTest(){
+        JsonRead json =new JsonRead();
+        List<Object> out=json.readFile("Brewer");
+        Assert.assertEquals("should be 1",1, out.size());
+        JsonWrite wjson = new JsonWrite();
+        Brewer brewer= new Brewer("Bush","LLN","1");
+        wjson.writeFile("Brewer",brewer,false);
+        out=json.readFile("Brewer");
+        Assert.assertEquals("should be 1",2, out.size());
+        Brewer brewer2 = new Brewer("Bush","LLN", "3");
+        wjson.writeFile("Brewer",brewer2,true);
 
 
     }
