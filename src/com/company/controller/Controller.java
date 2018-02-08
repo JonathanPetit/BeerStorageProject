@@ -43,11 +43,6 @@ public class Controller {
         this.commandsList.put(key, options);
     }
 
-    // Help and exit methods.
-    private void help(){
-        System.out.println("Help method");
-    }
-
     private void exit() {
         System.exit(0);
     }
@@ -114,8 +109,9 @@ public class Controller {
         // Test to get options.
         try {
             name = parsedCommand.get(2);
+            System.out.print(name);
         } catch (Exception e) {
-            System.out.print("Name of the target doesn't exist (try an other)");
+            System.out.print("Options of the target doesn't exist (try an other)");
         }
 
         try {
@@ -125,7 +121,7 @@ public class Controller {
 
             // Search object to remove.
             for (int i = 0; i < objs.size(); i++) {
-                if (m.invoke(objs.get(i)) == name) {
+                if ((m.invoke(objs.get(i))).equals(name)) {
                     objs.remove(i);
                 }
             }

@@ -56,7 +56,7 @@ public class Brand {
             brandsString += ", ";
             }
         }
-        return String.format("%20s%20s%20s", this.name, this.address,brandsString);
+        return String.format("%30s%30s%20s", this.name, this.address,brandsString);
     }
 }
 

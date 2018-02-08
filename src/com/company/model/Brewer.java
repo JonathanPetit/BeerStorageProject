@@ -30,7 +30,7 @@ public class Brewer {
         return names;
     }
 
-    public ArrayList<Brand> getBrandList() {
+    public ArrayList<Brand> getBrandListObject() {
     return brandsList;
   }
 
@@ -55,6 +55,6 @@ public class Brewer {
                 brandsString += ", ";
             }
         }
-        return String.format("%20s%20s%20s", this.name, this.address,brandsString);
+        return String.format("%30s%30s%40s", this.name, this.address,brandsString);
   }
 }
