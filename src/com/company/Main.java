@@ -18,9 +18,6 @@ public class Main {
         controller.addCommands("add", options);
         controller.addCommands("remove", options);
         controller.addCommands("info", options);
-        controller.addCommands("exit", new ArrayList<>());
-        controller.addCommands("help", new ArrayList<>());
-
         controller.run();
     }
 }

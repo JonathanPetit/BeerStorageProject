@@ -1,5 +1,6 @@
 package com.company.Json;
 
+import java.awt.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,9 +80,8 @@ public class JsonRead {
                             brandsList = (List<Object>) jsonObject1;
                             // Create Object
                             brewer = new Brewer(name, address);
-
                             for (Object brandBeerName:brandsList) {
-                                brandBeer = (Brand) getByName("Brand",(String) brandBeerName);
+                                brandBeer = (Brand) getByName("Brand", (String) brandBeerName);
                                 brewer.addBrand(brandBeer);
                             }
                             // Add to list
@@ -109,7 +109,6 @@ public class JsonRead {
                 }
             }
             catch(Exception e){
-                System.out.println("lol");
             }
             fileReader.close();
         }
@@ -128,7 +127,7 @@ public class JsonRead {
      */
 
     public Object getByName(String fileType, String name){
-        List<Object> objects = getByArg(fileType, "name",name);
+        List<Object> objects = getByArg(fileType, "name", name);
         if (objects.size()==1){
             return objects.get(0);
         }
@@ -181,7 +180,7 @@ public class JsonRead {
                         objectList.add(brewer);
                     }
                     else if (arg.equals("brandsList")){
-                        List<Brand> brandsList = brewer.getBrandList();
+                        List<Brand> brandsList = brewer.getBrandListObject();
                         for (Brand brandBeer:brandsList){
                             if (brandBeer.getName().equals(value)){
                                 objectList.add(brewer);

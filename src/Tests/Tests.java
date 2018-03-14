@@ -53,9 +53,9 @@ public class BeerTests
                 "                    ",brewer.beautifulString());
         Brand brand = new Brand("Pechmel","Here","30");
         brewer.addBrand(brand);
-        Assert.assertEquals("Should be 1",1,brewer.getBrandList().size());
+        Assert.assertEquals("Should be 1", 1, brewer.getBrandsList().size());
         brewer.RemoveBrand(brand);
-        Assert.assertEquals("Should be 0",0,brewer.getBrandList().size());
+        Assert.assertEquals("Should be 0", 0, brewer.getBrandsList().size());
 
     }
     @Test
@@ -72,45 +72,70 @@ public class BeerTests
                 "                 0                    ",brand.beautifulString());
         Beer beer= new Beer("Jup","Pils",6,50,2.5,5);
         Assert.assertEquals("Should be 0",0,brand.getBeersList().size());
+
         brand.addBeer(beer);
-        Assert.assertEquals("Should be 1",1,brand.getBeersList().size());
+        Assert.assertEquals("Should be 1", 1, brand.getBeersList().size());
         brand.removeBeer(beer);
-        Assert.assertEquals("Should be 0",0,brand.getBeersList().size());
+        Assert.assertEquals("Should be 0", 0, brand.getBeersList().size());
 
 
     }
     @Test
     public void JsonTest(){
-        JsonRead json =new JsonRead();
-        List<Object> out=json.readFile("Brewer");
+        // Test jsonRead
+        Controller controller= Controller.getInstance();
+        JsonRead json = new JsonRead();
+        List<Object> out = json.readFile("Brewer");
         int size = out.size();
-        Assert.assertEquals("should be 1",size, out.size());
+        Assert.assertEquals("should be 1", size, out.size());
         JsonWrite wjson = new JsonWrite();
-        Brewer brewer= new Brewer("Bush","LLN","1");
-        wjson.writeFile("Brewer",brewer,false);
-        out=json.readFile("Brewer");
+
+        ArrayList<Object> brewers = new ArrayList<Object>();
+        Brewer brewer = new Brewer("Bush", "LLN");
+        brewers.add(brewer);
+        wjson.writeFile("Brewer", brewers, controller.getParamsBrewer());
+
+        // Test Add Object to json
+        out = json.readFile("Brewer");
+        Assert.assertEquals("should be 2", size+1, out.size());
+        Brewer brewer2 = new Brewer("Bush","LLN");
+        ArrayList<Object> brewers2 = new ArrayList<Object>();
+        brewers.add(brewer2);
+        wjson.writeFile("Brewer", brewers2, controller.getParamsBrewer());
+
+        // Test getByArgs
         Assert.assertEquals("should be 2",size+1, out.size());
-        Brewer brewer2 = new Brewer("Bush","LLN", "3");
-        wjson.writeFile("Brewer",brewer2,true);
-        Assert.assertEquals("should be 2",size+1, out.size());
-        List<Object> brands = json.getByArg("BrandBeer","address","BrandAddress");
-        Assert.assertEquals("should be 1",1,brands.size());
-        Object brandstest = json.getByName("BrandBeer","OtherBrandBeer");
-        Assert.assertEquals("should be 1",1,brands.size());
+        List<Object> brands = json.getByArg("Brand", "address", "BrandAddress");
+        Assert.assertEquals("should be 1",1, brands.size());
+        Object brandstest = json.getByName("Brand", "OtherBrandBeer");
+        Assert.assertEquals("should be 1", 1, brands.size());
 
     }
     @Test
     public void ControllerTests(){
-        Controller controller= new Controller();
-        Controller controller2 = new Controller();
+
+        Controller controller = Controller.getInstance();
+
+        //Test Singleton
+        try {
+            Controller controller2 = Controller.getInstance();
+
+        } catch (Exception e) {
+            Assert.fail();
+        }
+
+        //Test addCommand
         ArrayList<String> params = new ArrayList<>();
         params.add("-b");
         params.add("-c");
-        controller.addCommands("test",params);
-        Assert.assertEquals("should be params",params,controller.commandsList.get("test"));
+        controller.addCommands("test", params);
+        Assert.assertEquals("should be params",
+                params,controller.getCommandsList().get("test"));
+
+        //Test parseCommand
         ArrayList<String> parsed = controller.parseCommand("test -b -c");
-        Assert.assertEquals("shoud be 3",3,parsed.size());
-        Assert.assertEquals("should be 'test'","-b",parsed.get(1));
+        Assert.assertEquals("shoud be 3", 3,parsed.size());
+        Assert.assertEquals("should be 'test'", "-b",parsed.get(1));
     }
     @Test
     public void InventoryTest(){

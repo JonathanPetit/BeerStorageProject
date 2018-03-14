@@ -19,8 +19,10 @@ public class Controller {
     private JsonWrite jsonW = new JsonWrite();
     View view = View.getInstance();
 
+    // Method to get the unique instance of Controller.
+    private static Controller instance;
 
-    private Controller(){
+    private Controller() {
         this.commandsList = new Hashtable<String, ArrayList<String>>();
     }
 
@@ -29,23 +31,16 @@ public class Controller {
     }
 
     // Create and set unique instance of Controller class. (Singleton pattern)
-    private static class ControllerHolder {
-        private static final Controller INSTANCE = new Controller();
-    }
-
-    // Method to get the unique instance of Controller.
     public static Controller getInstance() {
-        return Controller.ControllerHolder.INSTANCE;
+        if (null == instance) { // Premier appel
+            instance = new Controller();
+        }
+        return instance;
     }
 
     // Add commands to class.
     public void addCommands(String key, ArrayList<String> options) {
         this.commandsList.put(key, options);
-    }
-
-    // Help and exit methods.
-    private void help(){
-        System.out.println("Help method");
     }
 
     private void exit() {
@@ -114,8 +109,9 @@ public class Controller {
         // Test to get options.
         try {
             name = parsedCommand.get(2);
+            System.out.print(name);
         } catch (Exception e) {
-            System.out.print("Name of the target doesn't exist (try an other)");
+            System.out.print("Options of the target doesn't exist (try an other)");
         }
 
         try {
@@ -125,7 +121,7 @@ public class Controller {
 
             // Search object to remove.
             for (int i = 0; i < objs.size(); i++) {
-                if (m.invoke(objs.get(i)) == name) {
+                if ((m.invoke(objs.get(i))).equals(name)) {
                     objs.remove(i);
                 }
             }
